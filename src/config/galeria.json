@@ -1,0 +1,516 @@
+{
+  "categorias": {
+    "comercial": [
+      {
+        "id": 1,
+        "src": "/src/assets/image/galeria/comercial/01.jpg",
+        "width": 320,
+        "height": 480,
+        "caption": "Instalación Comercial 1"
+      },
+      {
+        "id": 2,
+        "src": "/src/assets/image/galeria/comercial/02.jpg",
+        "width": 320,
+        "height": 400,
+        "caption": "Instalación Comercial 2"
+      },
+      {
+        "id": 3,
+        "src": "/src/assets/image/galeria/comercial/03.jpg",
+        "width": 320,
+        "height": 360,
+        "caption": "Instalación Comercial 3"
+      },
+      {
+        "id": 4,
+        "src": "/src/assets/image/galeria/comercial/04.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Comercial 4"
+      },
+      {
+        "id": 5,
+        "src": "/src/assets/image/galeria/comercial/05.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Comercial 5"
+      },
+      {
+        "id": 6,
+        "src": "/src/assets/image/galeria/comercial/06.JPG",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Comercial 6"
+      },
+      {
+        "id": 7,
+        "src": "/src/assets/image/galeria/comercial/07.JPG",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Comercial 7"
+      },
+      {
+        "id": 8,
+        "src": "/src/assets/image/galeria/comercial/08.JPG",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Comercial 8"
+      },
+      {
+        "id": 9,
+        "src": "/src/assets/image/galeria/comercial/09.JPG",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Comercial 9"
+      },
+      {
+        "id": 10,
+        "src": "/src/assets/image/galeria/comercial/10.JPG",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Comercial 10"
+      },
+      {
+        "id": 11,
+        "src": "/src/assets/image/galeria/comercial/11.JPG",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Comercial 11"
+      },
+      {
+        "id": 12,
+        "src": "/src/assets/image/galeria/comercial/12.JPG",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Comercial 12"
+      },
+      {
+        "id": 13,
+        "src": "/src/assets/image/galeria/comercial/13.JPG",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Comercial 13"
+      }
+    ],
+    "industrial": [
+      {
+        "id": 1,
+        "src": "/src/assets/image/galeria/industrial/01.jpg",
+        "width": 320,
+        "height": 360,
+        "caption": "Instalación Industrial 1"
+      },
+      {
+        "id": 2,
+        "src": "/src/assets/image/galeria/industrial/02.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Industrial 2"
+      },
+      {
+        "id": 3,
+        "src": "/src/assets/image/galeria/industrial/03.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Industrial 3"
+      },
+      {
+        "id": 4,
+        "src": "/src/assets/image/galeria/industrial/04.jpg",
+        "width": 320,
+        "height": 440,
+        "caption": "Instalación Industrial 4"
+      },
+      {
+        "id": 5,
+        "src": "/src/assets/image/galeria/industrial/05.jpg",
+        "width": 320,
+        "height": 400,
+        "caption": "Instalación Industrial 5"
+      },
+      {
+        "id": 6,
+        "src": "/src/assets/image/galeria/industrial/06.jpg",
+        "width": 320,
+        "height": 400,
+        "caption": "Instalación Industrial 6"
+      },
+      {
+        "id": 7,
+        "src": "/src/assets/image/galeria/industrial/07.jpg",
+        "width": 320,
+        "height": 400,
+        "caption": "Instalación Industrial 7"
+      },
+      {
+        "id": 8,
+        "src": "/src/assets/image/galeria/industrial/08.jpg",
+        "width": 320,
+        "height": 400,
+        "caption": "Instalación Industrial 8"
+      },
+      {
+        "id": 9,
+        "src": "/src/assets/image/galeria/industrial/09.jpg",
+        "width": 320,
+        "height": 400,
+        "caption": "Instalación Industrial 9"
+      }
+    ],
+    "multifamiliar": [
+      {
+        "id": 1,
+        "src": "/src/assets/image/galeria/multifamiliar/01.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 1"
+      },
+      {
+        "id": 2,
+        "src": "/src/assets/image/galeria/multifamiliar/02.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 2"
+      },
+      {
+        "id": 3,
+        "src": "/src/assets/image/galeria/multifamiliar/03.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 3"
+      },
+      {
+        "id": 4,
+        "src": "/src/assets/image/galeria/multifamiliar/04.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 4"
+      },
+      {
+        "id": 5,
+        "src": "/src/assets/image/galeria/multifamiliar/05.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 5"
+      },
+      {
+        "id": 6,
+        "src": "/src/assets/image/galeria/multifamiliar/06.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 6"
+      },
+      {
+        "id": 7,
+        "src": "/src/assets/image/galeria/multifamiliar/07.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 7"
+      },
+      {
+        "id": 8,
+        "src": "/src/assets/image/galeria/multifamiliar/08.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 8"
+      },
+      {
+        "id": 9,
+        "src": "/src/assets/image/galeria/multifamiliar/09.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 9"
+      },
+      {
+        "id": 10,
+        "src": "/src/assets/image/galeria/multifamiliar/10.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 10"
+      },
+      {
+        "id": 11,
+        "src": "/src/assets/image/galeria/multifamiliar/11.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 11"
+      },
+      {
+        "id": 12,
+        "src": "/src/assets/image/galeria/multifamiliar/12.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 12"
+      },
+      {
+        "id": 13,
+        "src": "/src/assets/image/galeria/multifamiliar/13.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 13"
+      },
+      {
+        "id": 14,
+        "src": "/src/assets/image/galeria/multifamiliar/14.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 14"
+      },
+      {
+        "id": 15,
+        "src": "/src/assets/image/galeria/multifamiliar/15.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 15"
+      },
+      {
+        "id": 16,
+        "src": "/src/assets/image/galeria/multifamiliar/16.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 16"
+      },
+      {
+        "id": 17,
+        "src": "/src/assets/image/galeria/multifamiliar/17.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 17"
+      },
+      {
+        "id": 18,
+        "src": "/src/assets/image/galeria/multifamiliar/18.jpg",
+        "width": 320,
+        "height": 380,
+        "caption": "Instalación Multifamiliar 18"
+      }
+    ],
+    "residencial": [
+      {
+        "id": 1,
+        "src": "/src/assets/image/galeria/residencial/01.jpg",
+        "width": 320,
+        "height": 440,
+        "caption": "Instalación Residencial 1"
+      },
+      {
+        "id": 2,
+        "src": "/src/assets/image/galeria/residencial/02.jpg",
+        "width": 320,
+        "height": 400,
+        "caption": "Instalación Residencial 2"
+      },
+      {
+        "id": 3,
+        "src": "/src/assets/image/galeria/residencial/03.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 3"
+      },
+      {
+        "id": 4,
+        "src": "/src/assets/image/galeria/residencial/04.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 4"
+      },
+      {
+        "id": 5,
+        "src": "/src/assets/image/galeria/residencial/05.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 5"
+      },
+      {
+        "id": 6,
+        "src": "/src/assets/image/galeria/residencial/06.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 6"
+      },
+      {
+        "id": 7,
+        "src": "/src/assets/image/galeria/residencial/07.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 7"
+      },
+      {
+        "id": 8,
+        "src": "/src/assets/image/galeria/residencial/08.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 8"
+      },
+      {
+        "id": 9,
+        "src": "/src/assets/image/galeria/residencial/09.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 9"
+      },
+      {
+        "id": 10,
+        "src": "/src/assets/image/galeria/residencial/10.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 10"
+      },
+      {
+        "id": 11,
+        "src": "/src/assets/image/galeria/residencial/11.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 11"
+      },
+      {
+        "id": 12,
+        "src": "/src/assets/image/galeria/residencial/12.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 12"
+      },
+      {
+        "id": 13,
+        "src": "/src/assets/image/galeria/residencial/13.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 13"
+      },
+      {
+        "id": 14,
+        "src": "/src/assets/image/galeria/residencial/14.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 14"
+      },
+      {
+        "id": 15,
+        "src": "/src/assets/image/galeria/residencial/15.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 15"
+      },
+      {
+        "id": 16,
+        "src": "/src/assets/image/galeria/residencial/16.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 16"
+      },
+      {
+        "id": 17,
+        "src": "/src/assets/image/galeria/residencial/17.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 17"
+      },
+      {
+        "id": 18,
+        "src": "/src/assets/image/galeria/residencial/18.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 18"
+      },
+      {
+        "id": 19,
+        "src": "/src/assets/image/galeria/residencial/19.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 19"
+      },
+      {
+        "id": 20,
+        "src": "/src/assets/image/galeria/residencial/20.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 20"
+      },
+      {
+        "id": 21,
+        "src": "/src/assets/image/galeria/residencial/21.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 21"
+      },
+      {
+        "id": 22,
+        "src": "/src/assets/image/galeria/residencial/22.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 22"
+      },
+      {
+        "id": 23,
+        "src": "/src/assets/image/galeria/residencial/23.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 23"
+      },
+      {
+        "id": 24,
+        "src": "/src/assets/image/galeria/residencial/24.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 24"
+      },
+      {
+        "id": 25,
+        "src": "/src/assets/image/galeria/residencial/25.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 25"
+      },
+      {
+        "id": 26,
+        "src": "/src/assets/image/galeria/residencial/26.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 26"
+      },
+      {
+        "id": 27,
+        "src": "/src/assets/image/galeria/residencial/27.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 27"
+      },
+      {
+        "id": 28,
+        "src": "/src/assets/image/galeria/residencial/28.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 28"
+      },
+      {
+        "id": 29,
+        "src": "/src/assets/image/galeria/residencial/29.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 29"
+      },
+      {
+        "id": 30,
+        "src": "/src/assets/image/galeria/residencial/30.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 30"
+      },
+      {
+        "id": 31,
+        "src": "/src/assets/image/galeria/residencial/31.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 31"
+      },
+      {
+        "id": 32,
+        "src": "/src/assets/image/galeria/residencial/32.jpg",
+        "width": 320,
+        "height": 420,
+        "caption": "Instalación Residencial 32"
+      }
+    ]
+  }
+} 
