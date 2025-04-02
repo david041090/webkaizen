@@ -24,14 +24,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-grid-gallery": "^1.0.1",
-    "react-image-lightbox": "^5.1.4",
     "react-photo-gallery": "^8.0.0",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.3",
     "sharp": "^0.33.5",
     "slick-carousel": "^1.8.1",
-    "web-kaizen": "file:",
     "yet-another-react-lightbox": "^3.21.9"
   },
   "scripts": {
