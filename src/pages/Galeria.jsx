@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Gallery from 'react-photo-gallery';
 import PageBanner from '../components/PageBanner';
 import gasNaturalImage from '../assets/image/slider/gas_natural.jpg';
 import configGaleria from '../config/galeria.json';
+import '../styles/Galeria.css';
 
 const importarImagenes = () => {
   const imagenes = {
@@ -93,261 +93,100 @@ const importarImagenes = () => {
 const Galeria = () => {
   const [images, setImages] = useState([]);
   const [categoriaActiva, setCategoriaActiva] = useState("Todos");
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const categorias = ["Todos", "Residencial", "Comercial", "Multifamiliar", "Industrial"];
 
   useEffect(() => {
     const cargarImagenes = () => {
-      try {
-        const imagenesConfiguradas = [];
-        const imagenesImportadas = importarImagenes();
-        const categorias = ["comercial", "industrial", "multifamiliar", "residencial"];
+      const imagenes = importarImagenes();
+      let todasLasImagenes = [];
 
-        categorias.forEach(categoria => {
-          const imagenesCategoria = configGaleria.categorias[categoria].map(imagen => ({
-            src: imagenesImportadas[categoria][imagen.id],
-            width: 1,
-            height: 1,
-            title: imagen.caption,
-            categoria: categoria.charAt(0).toUpperCase() + categoria.slice(1)
-          }));
-          imagenesConfiguradas.push(...imagenesCategoria);
+      if (categoriaActiva === "Todos") {
+        Object.values(imagenes).forEach(categoria => {
+          Object.values(categoria).forEach(url => {
+            todasLasImagenes.push({
+              src: url,
+              alt: "Imagen de galería"
+            });
+          });
         });
-
-        const imagenesDesordenadas = imagenesConfiguradas
-          .map(value => ({ value, sort: Math.random() }))
-          .sort((a, b) => a.sort - b.sort)
-          .map(({ value }) => value);
-
-        setImages(imagenesDesordenadas);
-      } catch (error) {
-        console.error("Error al cargar las imágenes:", error);
+      } else {
+        const categoriaKey = categoriaActiva.toLowerCase();
+        if (imagenes[categoriaKey]) {
+          Object.values(imagenes[categoriaKey]).forEach(url => {
+            todasLasImagenes.push({
+              src: url,
+              alt: "Imagen de galería"
+            });
+          });
+        }
       }
+
+      setImages(todasLasImagenes);
     };
 
     cargarImagenes();
-  }, []);
+  }, [categoriaActiva]);
 
-  const imagenesFiltradas = categoriaActiva === "Todos"
-    ? images
-    : images.filter(imagen => imagen.categoria === categoriaActiva);
-
-  const handleClick = (event, { index }) => {
-    setPhotoIndex(index);
-    setIsOpen(true);
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
   };
 
-  // Determinar si estamos en móvil para aplicar estilos específicos
-  const [isMobile, setIsMobile] = useState(false);
-  
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
-    
-    return () => {
-      window.removeEventListener('resize', checkIfMobile);
-    };
-  }, []);
-
-  const imageRenderer = ({ index, photo, margin }) => (
-    <div
-      key={index}
-      style={{
-        margin: isMobile ? '2px' : '4px',
-        width: photo.width,
-        height: photo.height,
-        position: 'relative',
-        overflow: 'hidden',
-        borderRadius: '6px',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-        cursor: 'pointer',
-        transition: 'transform 0.3s ease-in-out',
-      }}
-      onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
-      onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-      onClick={(e) => handleClick(e, { index })}
-    >
-      <img
-        src={photo.src}
-        alt={photo.title}
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-        }}
-      />
-      {!isMobile && (
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            padding: '6px',
-            background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
-            color: 'white',
-            fontSize: '12px',
-            opacity: 0,
-            transition: 'opacity 0.3s ease-in-out',
-          }}
-          className="image-caption"
-        >
-          {photo.title}
-        </div>
-      )}
-    </div>
-  );
-
-  const handleClose = () => {
-    setIsOpen(false);
-    setPhotoIndex(0);
-  };
-
-  const handleMovePrev = () => {
-    setPhotoIndex((photoIndex + imagenesFiltradas.length - 1) % imagenesFiltradas.length);
-  };
-
-  const handleMoveNext = () => {
-    setPhotoIndex((photoIndex + 1) % imagenesFiltradas.length);
-  };
-
-  const Modal = ({ isOpen, onClose, children }) => {
-    if (!isOpen) return null;
-
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90">
-        <div className="relative max-w-7xl w-full mx-4">
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-50"
-          >
-            ×
-          </button>
-          {children}
-        </div>
-      </div>
-    );
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
   };
 
   return (
-    <div className="w-full">
+    <div className="galeria-container">
       <PageBanner
         title="Galería"
-        subtitle="Conoce nuestros trabajos y proyectos realizados"
         backgroundImage={gasNaturalImage}
+        description="Explora nuestros proyectos"
       />
-      <div className="container mx-auto px-4 section-spacing">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {categorias.map((categoria) => (
-              <button
-                key={categoria}
-                onClick={() => setCategoriaActiva(categoria)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 text-body-sm ${
-                  categoriaActiva === categoria
-                    ? "bg-complemento-500 text-white"
-                    : "bg-primary-50 text-primary-600 hover:bg-primary-100"
-                }`}
-              >
-                {categoria}
-              </button>
-            ))}
-          </div>
-
-          <div className="mb-12">
-            {imagenesFiltradas.length > 0 ? (
-              <div className="gallery-container">
-                {/* Implementación alternativa para dispositivos móviles */}
-                {isMobile ? (
-                  <div className="grid grid-cols-2 gap-1">
-                    {imagenesFiltradas.map((photo, index) => (
-                      <div 
-                        key={index}
-                        className="relative aspect-square overflow-hidden rounded"
-                        onClick={() => {
-                          setPhotoIndex(index);
-                          setIsOpen(true);
-                        }}
-                      >
-                        <img
-                          src={photo.src}
-                          alt={photo.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <Gallery
-                    photos={imagenesFiltradas}
-                    onClick={handleClick}
-                    renderImage={imageRenderer}
-                    margin={4}
-                    columns={(containerWidth) => {
-                      if (containerWidth >= 1200) return 5;
-                      if (containerWidth >= 900) return 4;
-                      return 3;
-                    }}
-                  />
-                )}
-              </div>
-            ) : (
-              <div className="text-center py-8">
-                <p className="text-primary-600">Cargando imágenes...</p>
-              </div>
-            )}
-          </div>
-
-          <Modal isOpen={isOpen} onClose={handleClose}>
-            <div className="relative">
-              <img
-                src={imagenesFiltradas[photoIndex]?.src}
-                alt={imagenesFiltradas[photoIndex]?.title}
-                className="w-full h-auto max-h-[80vh] object-contain"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
-                <p className="text-center">{imagenesFiltradas[photoIndex]?.title}</p>
-              </div>
-              <button
-                onClick={handleMovePrev}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white w-10 h-10 rounded-full hover:bg-black/80 transition-all duration-300 flex items-center justify-center"
-                aria-label="Imagen anterior"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={handleMoveNext}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white w-10 h-10 rounded-full hover:bg-black/80 transition-all duration-300 flex items-center justify-center"
-                aria-label="Siguiente imagen"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </Modal>
-        </div>
+      
+      <div className="categorias-container">
+        {categorias.map((categoria) => (
+          <button
+            key={categoria}
+            className={`categoria-btn ${categoriaActiva === categoria ? 'active' : ''}`}
+            onClick={() => setCategoriaActiva(categoria)}
+          >
+            {categoria}
+          </button>
+        ))}
       </div>
 
-      <style jsx>{`
-        .gallery-container {
-          overflow: hidden;
-        }
-        .gallery-container:hover .image-caption {
-          opacity: 1;
-        }
-        
-        .aspect-square {
-          aspect-ratio: 1/1;
-        }
-      `}</style>
+      <div className="gallery-grid">
+        {images.map((image, index) => (
+          <div 
+            key={index} 
+            className="gallery-item"
+            onClick={() => handleImageClick(image)}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+
+      {isModalOpen && selectedImage && (
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={handleCloseModal}>×</button>
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="modal-image"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
