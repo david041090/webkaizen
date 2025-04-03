@@ -1,93 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import PageBanner from '../components/PageBanner';
 import gasNaturalImage from '../assets/image/slider/gas_natural.jpg';
-import configGaleria from '../config/galeria.json';
 import '../styles/Galeria.css';
 
-const importarImagenes = () => {
-  const imagenes = {
-    comercial: {
-      1: new URL('../assets/image/galeria/comercial/01.jpg', import.meta.url).href,
-      2: new URL('../assets/image/galeria/comercial/02.jpg', import.meta.url).href,
-      3: new URL('../assets/image/galeria/comercial/03.jpg', import.meta.url).href,
-      4: new URL('../assets/image/galeria/comercial/04.jpg', import.meta.url).href,
-      5: new URL('../assets/image/galeria/comercial/05.jpg', import.meta.url).href,
-      6: new URL('../assets/image/galeria/comercial/06.JPG', import.meta.url).href,
-      7: new URL('../assets/image/galeria/comercial/07.JPG', import.meta.url).href,
-      8: new URL('../assets/image/galeria/comercial/08.JPG', import.meta.url).href,
-      9: new URL('../assets/image/galeria/comercial/09.JPG', import.meta.url).href,
-      10: new URL('../assets/image/galeria/comercial/10.JPG', import.meta.url).href,
-      11: new URL('../assets/image/galeria/comercial/11.JPG', import.meta.url).href,
-      12: new URL('../assets/image/galeria/comercial/12.JPG', import.meta.url).href,
-      13: new URL('../assets/image/galeria/comercial/13.JPG', import.meta.url).href
-    },
-    industrial: {
-      1: new URL('../assets/image/galeria/industrial/01.jpg', import.meta.url).href,
-      2: new URL('../assets/image/galeria/industrial/02.jpg', import.meta.url).href,
-      3: new URL('../assets/image/galeria/industrial/03.jpg', import.meta.url).href,
-      4: new URL('../assets/image/galeria/industrial/04.jpg', import.meta.url).href,
-      5: new URL('../assets/image/galeria/industrial/05.jpg', import.meta.url).href,
-      6: new URL('../assets/image/galeria/industrial/06.jpg', import.meta.url).href,
-      7: new URL('../assets/image/galeria/industrial/07.jpg', import.meta.url).href,
-      8: new URL('../assets/image/galeria/industrial/08.jpg', import.meta.url).href,
-      9: new URL('../assets/image/galeria/industrial/09.jpg', import.meta.url).href
-    },
-    multifamiliar: {
-      1: new URL('../assets/image/galeria/multifamiliar/01.jpg', import.meta.url).href,
-      2: new URL('../assets/image/galeria/multifamiliar/02.jpg', import.meta.url).href,
-      3: new URL('../assets/image/galeria/multifamiliar/03.jpg', import.meta.url).href,
-      4: new URL('../assets/image/galeria/multifamiliar/04.jpg', import.meta.url).href,
-      5: new URL('../assets/image/galeria/multifamiliar/05.jpg', import.meta.url).href,
-      6: new URL('../assets/image/galeria/multifamiliar/06.jpg', import.meta.url).href,
-      7: new URL('../assets/image/galeria/multifamiliar/07.jpg', import.meta.url).href,
-      8: new URL('../assets/image/galeria/multifamiliar/08.jpg', import.meta.url).href,
-      9: new URL('../assets/image/galeria/multifamiliar/09.jpg', import.meta.url).href,
-      10: new URL('../assets/image/galeria/multifamiliar/10.jpg', import.meta.url).href,
-      11: new URL('../assets/image/galeria/multifamiliar/11.jpg', import.meta.url).href,
-      12: new URL('../assets/image/galeria/multifamiliar/12.jpg', import.meta.url).href,
-      13: new URL('../assets/image/galeria/multifamiliar/13.jpg', import.meta.url).href,
-      14: new URL('../assets/image/galeria/multifamiliar/14.jpg', import.meta.url).href,
-      15: new URL('../assets/image/galeria/multifamiliar/15.jpg', import.meta.url).href,
-      16: new URL('../assets/image/galeria/multifamiliar/16.jpg', import.meta.url).href,
-      17: new URL('../assets/image/galeria/multifamiliar/17.jpg', import.meta.url).href,
-      18: new URL('../assets/image/galeria/multifamiliar/18.jpg', import.meta.url).href
-    },
-    residencial: {
-      1: new URL('../assets/image/galeria/residencial/01.jpg', import.meta.url).href,
-      2: new URL('../assets/image/galeria/residencial/02.jpg', import.meta.url).href,
-      3: new URL('../assets/image/galeria/residencial/03.jpg', import.meta.url).href,
-      4: new URL('../assets/image/galeria/residencial/04.jpg', import.meta.url).href,
-      5: new URL('../assets/image/galeria/residencial/05.jpg', import.meta.url).href,
-      6: new URL('../assets/image/galeria/residencial/06.jpg', import.meta.url).href,
-      7: new URL('../assets/image/galeria/residencial/07.jpg', import.meta.url).href,
-      8: new URL('../assets/image/galeria/residencial/08.jpg', import.meta.url).href,
-      9: new URL('../assets/image/galeria/residencial/09.jpg', import.meta.url).href,
-      10: new URL('../assets/image/galeria/residencial/10.jpg', import.meta.url).href,
-      11: new URL('../assets/image/galeria/residencial/11.jpg', import.meta.url).href,
-      12: new URL('../assets/image/galeria/residencial/12.jpg', import.meta.url).href,
-      13: new URL('../assets/image/galeria/residencial/13.jpg', import.meta.url).href,
-      14: new URL('../assets/image/galeria/residencial/14.jpg', import.meta.url).href,
-      15: new URL('../assets/image/galeria/residencial/15.jpg', import.meta.url).href,
-      16: new URL('../assets/image/galeria/residencial/16.jpg', import.meta.url).href,
-      17: new URL('../assets/image/galeria/residencial/17.jpg', import.meta.url).href,
-      18: new URL('../assets/image/galeria/residencial/18.jpg', import.meta.url).href,
-      19: new URL('../assets/image/galeria/residencial/19.jpg', import.meta.url).href,
-      20: new URL('../assets/image/galeria/residencial/20.jpg', import.meta.url).href,
-      21: new URL('../assets/image/galeria/residencial/21.jpg', import.meta.url).href,
-      22: new URL('../assets/image/galeria/residencial/22.jpg', import.meta.url).href,
-      23: new URL('../assets/image/galeria/residencial/23.jpg', import.meta.url).href,
-      24: new URL('../assets/image/galeria/residencial/24.jpg', import.meta.url).href,
-      25: new URL('../assets/image/galeria/residencial/25.jpg', import.meta.url).href,
-      26: new URL('../assets/image/galeria/residencial/26.jpg', import.meta.url).href,
-      27: new URL('../assets/image/galeria/residencial/27.jpg', import.meta.url).href,
-      28: new URL('../assets/image/galeria/residencial/28.jpg', import.meta.url).href,
-      29: new URL('../assets/image/galeria/residencial/29.jpg', import.meta.url).href,
-      30: new URL('../assets/image/galeria/residencial/30.jpg', import.meta.url).href,
-      31: new URL('../assets/image/galeria/residencial/31.jpg', import.meta.url).href,
-      32: new URL('../assets/image/galeria/residencial/32.jpg', import.meta.url).href
-    }
-  };
-  return imagenes;
+// Importar las imágenes usando importación dinámica de Vite
+const CATEGORIES = {
+  residencial: Array.from({ length: 32 }, (_, i) => ({
+    id: i + 1,
+    path: `/src/assets/image/galeria/residencial/${String(i + 1).padStart(2, '0')}.jpg`
+  })),
+  comercial: Array.from({ length: 13 }, (_, i) => ({
+    id: i + 1,
+    path: `/src/assets/image/galeria/comercial/${String(i + 1).padStart(2, '0')}.jpg`
+  })),
+  multifamiliar: Array.from({ length: 18 }, (_, i) => ({
+    id: i + 1,
+    path: `/src/assets/image/galeria/multifamiliar/${String(i + 1).padStart(2, '0')}.jpg`
+  })),
+  industrial: Array.from({ length: 9 }, (_, i) => ({
+    id: i + 1,
+    path: `/src/assets/image/galeria/industrial/${String(i + 1).padStart(2, '0')}.jpg`
+  }))
 };
 
 const Galeria = () => {
@@ -96,49 +29,79 @@ const Galeria = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  
   const categorias = ["Todos", "Residencial", "Comercial", "Multifamiliar", "Industrial"];
 
-  useEffect(() => {
-    const cargarImagenes = () => {
-      const imagenes = importarImagenes();
+  const cargarImagenes = useCallback(async () => {
+    setIsLoading(true);
+    try {
       let todasLasImagenes = [];
 
       if (categoriaActiva === "Todos") {
-        Object.values(imagenes).forEach(categoria => {
-          Object.values(categoria).forEach(url => {
-            todasLasImagenes.push({
-              src: url,
-              alt: "Imagen de galería"
-            });
-          });
-        });
+        for (const [categoria, imagenes] of Object.entries(CATEGORIES)) {
+          const imagenesCategoria = await Promise.all(
+            imagenes.map(async (img) => {
+              try {
+                const imageUrl = new URL(img.path, import.meta.url).href;
+                return {
+                  src: imageUrl,
+                  alt: `Imagen ${categoria} ${img.id}`,
+                  categoria: categoria
+                };
+              } catch (error) {
+                console.error(`Error cargando imagen ${img.path}:`, error);
+                return null;
+              }
+            })
+          );
+          todasLasImagenes = [...todasLasImagenes, ...imagenesCategoria.filter(Boolean)];
+        }
       } else {
         const categoriaKey = categoriaActiva.toLowerCase();
-        if (imagenes[categoriaKey]) {
-          Object.values(imagenes[categoriaKey]).forEach(url => {
-            todasLasImagenes.push({
-              src: url,
-              alt: "Imagen de galería"
-            });
-          });
+        if (CATEGORIES[categoriaKey]) {
+          const imagenesCategoria = await Promise.all(
+            CATEGORIES[categoriaKey].map(async (img) => {
+              try {
+                const imageUrl = new URL(img.path, import.meta.url).href;
+                return {
+                  src: imageUrl,
+                  alt: `Imagen ${categoriaKey} ${img.id}`,
+                  categoria: categoriaKey
+                };
+              } catch (error) {
+                console.error(`Error cargando imagen ${img.path}:`, error);
+                return null;
+              }
+            })
+          );
+          todasLasImagenes = imagenesCategoria.filter(Boolean);
         }
       }
 
       setImages(todasLasImagenes);
-    };
-
-    cargarImagenes();
+    } catch (error) {
+      console.error('Error cargando imágenes:', error);
+    } finally {
+      setIsLoading(false);
+    }
   }, [categoriaActiva]);
+
+  useEffect(() => {
+    cargarImagenes();
+  }, [cargarImagenes]);
 
   const handleImageClick = (image, index) => {
     setSelectedImage(image);
     setCurrentImageIndex(index);
     setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedImage(null);
+    document.body.style.overflow = 'auto';
   };
 
   const handlePrevImage = (e) => {
@@ -161,7 +124,7 @@ const Galeria = () => {
     setSelectedImage(images[currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1]);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
     if (!isModalOpen) return;
     
     if (e.key === 'ArrowLeft') {
@@ -171,12 +134,15 @@ const Galeria = () => {
     } else if (e.key === 'Escape') {
       handleCloseModal();
     }
-  };
+  }, [isModalOpen, currentImageIndex, images]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isModalOpen, currentImageIndex]);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'auto';
+    };
+  }, [handleKeyDown]);
 
   return (
     <div className="w-full relative">
@@ -190,11 +156,16 @@ const Galeria = () => {
 
       <div className="relative pt-[45vh] md:pt-[45vh]">
         <div className="container mx-auto px-4 pt-12 md:pt-16">
-          <div className="categorias-container mb-8">
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
             {categorias.map((categoria) => (
               <button
                 key={categoria}
-                className={`categoria-btn ${categoriaActiva === categoria ? 'active' : ''}`}
+                className={`
+                  px-6 py-2 rounded-full transition-all duration-300
+                  ${categoriaActiva === categoria 
+                    ? 'bg-blue-600 text-white shadow-lg' 
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}
+                `}
                 onClick={() => setCategoriaActiva(categoria)}
               >
                 {categoria}
@@ -202,36 +173,57 @@ const Galeria = () => {
             ))}
           </div>
 
-          <div className="gallery-grid">
-            {images.map((image, index) => (
-              <div 
-                key={index} 
-                className="gallery-item"
-                onClick={() => handleImageClick(image, index)}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="flex justify-center items-center min-h-[400px]">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {images.map((image, index) => (
+                <div 
+                  key={index} 
+                  className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
+                  onClick={() => handleImageClick(image, index)}
+                >
+                  <div className="aspect-w-4 aspect-h-3">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      loading="lazy"
+                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Ver imagen
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
       {isModalOpen && selectedImage && (
-        <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <div 
+          className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center"
+          onClick={handleCloseModal}
+        >
+          <div 
+            className="relative max-w-7xl mx-auto p-4 w-full h-full flex items-center justify-center"
+            onClick={e => e.stopPropagation()}
+          >
             <button 
-              className="modal-close absolute top-4 right-4 text-white text-3xl hover:text-gray-300" 
+              className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 z-10"
               onClick={handleCloseModal}
+              aria-label="Cerrar"
             >
               ×
             </button>
             
             <button
-              className="modal-nav-btn left-4 transform -translate-y-1/2"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300 z-10"
               onClick={handlePrevImage}
               aria-label="Imagen anterior"
             >
@@ -241,18 +233,18 @@ const Galeria = () => {
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
-              className="modal-image"
+              className="max-h-[90vh] max-w-[90vw] object-contain"
             />
 
             <button
-              className="modal-nav-btn right-4 transform -translate-y-1/2"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300 z-10"
               onClick={handleNextImage}
               aria-label="Imagen siguiente"
             >
               <i className="fas fa-chevron-right"></i>
             </button>
 
-            <div className="image-counter">
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-4 py-2 rounded-full">
               {currentImageIndex + 1} / {images.length}
             </div>
           </div>
