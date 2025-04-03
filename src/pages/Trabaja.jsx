@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 import PageBanner from "../components/PageBanner";
 import trabajoImage from "../assets/image/slider/gas_natural.jpg";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faBriefcase,
-  faGraduationCap,
-  faCertificate,
-  faHandshake,
-  faUserTie
-} from '@fortawesome/free-solid-svg-icons';
 
 const Trabaja = () => {
   const [formData, setFormData] = useState({
@@ -72,10 +64,9 @@ const Trabaja = () => {
                 {/* Información Personal */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <FontAwesomeIcon 
-                      icon={faBriefcase}
-                      className="w-5 h-5 mr-2"
-                    />
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
                     Información Personal
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -165,10 +156,10 @@ const Trabaja = () => {
                 {/* Formación Académica */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <FontAwesomeIcon 
-                      icon={faGraduationCap}
-                      className="w-5 h-5 mr-2"
-                    />
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    </svg>
                     Formación Académica
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -235,10 +226,9 @@ const Trabaja = () => {
                 {/* Habilidades y Experiencia */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <FontAwesomeIcon 
-                      icon={faCertificate}
-                      className="w-5 h-5 mr-2"
-                    />
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     Habilidades y Experiencia
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -297,10 +287,9 @@ const Trabaja = () => {
                 {/* Información Adicional */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <FontAwesomeIcon 
-                      icon={faHandshake}
-                      className="w-5 h-5 mr-2"
-                    />
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     Información Adicional
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -344,10 +333,9 @@ const Trabaja = () => {
                 {/* CV y Mensaje */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <FontAwesomeIcon 
-                      icon={faUserTie}
-                      className="w-5 h-5 mr-2"
-                    />
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
                     Documentos y Mensaje
                   </h3>
                   <div className="space-y-6">

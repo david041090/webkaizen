@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import MenuInferior from '../MenuInferior/MenuInferior';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 // Importar las imágenes
 import gasImg from '../../assets/image/slider/gas.png';

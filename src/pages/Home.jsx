@@ -1,16 +1,8 @@
 import React, { useEffect, useRef, useState, useMemo } from "react";
 import Slider from "../components/Slider/Slider";
 import LogoSlider from "../components/LogoSlider/LogoSlider";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faHome, 
-  faBuilding, 
-  faIndustry, 
-  faArrowRight,
-  faChevronRight
-} from '@fortawesome/free-solid-svg-icons';
 
-const ServiceCard = React.memo(({ title, description, icon, href }) => (
+const ServiceCard = ({ title, description, icon, href }) => (
   <div
     className="bg-gradient-to-br from-white via-secondary-50 to-secondary-100/20 
     border-[1.5px] border-secondary-200 rounded-xl overflow-hidden group transition-all duration-500 relative
@@ -53,16 +45,25 @@ const ServiceCard = React.memo(({ title, description, icon, href }) => (
           shadow-lg hover:shadow-white/25"
       >
         <span>Más información</span>
-        <FontAwesomeIcon 
-          icon={faArrowRight} 
+        <svg
           className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
-        />
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M13 7l5 5m0 0l-5 5m5-5H6"
+          />
+        </svg>
       </a>
     </div>
   </div>
-));
+);
 
-const CountUpAnimation = React.memo(({ end, duration = 2000, prefix = "", suffix = "" }) => {
+const CountUpAnimation = ({ end, duration = 2000, prefix = "", suffix = "" }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -129,22 +130,20 @@ const CountUpAnimation = React.memo(({ end, duration = 2000, prefix = "", suffix
       {prefix}{count}{suffix}
     </div>
   );
-});
+};
 
 const Home = () => {
   const videoSectionRef = useRef(null);
   const [player, setPlayer] = useState(null);
 
   useEffect(() => {
-    const loadYouTubeAPI = () => {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    };
+    // Cargar la API de YouTube
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    loadYouTubeAPI();
-
+    // Configurar el reproductor cuando la API esté lista
     window.onYouTubeIframeAPIReady = () => {
       const newPlayer = new window.YT.Player('video-player', {
         videoId: 'jWEeX8Gb4Mk',
@@ -164,6 +163,7 @@ const Home = () => {
       });
     };
 
+    // Configurar el observer para la reproducción automática
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
@@ -175,7 +175,9 @@ const Home = () => {
           player.pauseVideo();
         }
       },
-      { threshold: 0.5 }
+      {
+        threshold: 0.5
+      }
     );
 
     if (videoSectionRef.current) {
@@ -193,28 +195,48 @@ const Home = () => {
     };
   }, [player]);
 
-  const services = useMemo(() => [
+  const services = [
     {
       title: "Residencial",
-      description: "Instalación de gas para tu hogar con total seguridad y garantía.",
+      description:
+        "Instalación de gas para tu hogar con total seguridad y garantía.",
       icon: (
-        <FontAwesomeIcon 
-          icon={faHome}
+        <svg
           className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto text-secondary-500 group-hover:text-white 
           transition-colors duration-500 relative z-10"
-        />
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+          />
+        </svg>
       ),
       href: "/instalacion",
     },
     {
       title: "Comercial",
-      description: "Soluciones de gas natural para negocios y establecimientos comerciales.",
+      description:
+        "Soluciones de gas natural para negocios y establecimientos comerciales.",
       icon: (
-        <FontAwesomeIcon 
-          icon={faBuilding}
+        <svg
           className="w-12 h-12 md:w-16 md:h-16 mx-auto text-secondary-500 group-hover:text-white 
           transition-colors duration-500 relative z-10"
-        />
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+          />
+        </svg>
       ),
       href: "/instalacion",
     },
@@ -222,11 +244,20 @@ const Home = () => {
       title: "Multifamiliar",
       description: "Sistemas centralizados para edificios y condominios.",
       icon: (
-        <FontAwesomeIcon 
-          icon={faBuilding}
+        <svg
           className="w-12 h-12 md:w-16 md:h-16 mx-auto text-secondary-500 group-hover:text-white 
           transition-colors duration-500 relative z-10"
-        />
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+          />
+        </svg>
       ),
       href: "/instalacion",
     },
@@ -234,21 +265,30 @@ const Home = () => {
       title: "Industrial",
       description: "Instalaciones de alta capacidad para el sector industrial.",
       icon: (
-        <FontAwesomeIcon 
-          icon={faIndustry}
+        <svg
           className="w-12 h-12 md:w-16 md:h-16 mx-auto text-secondary-500 group-hover:text-white 
           transition-colors duration-500 relative z-10"
-        />
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+          />
+        </svg>
       ),
       href: "/instalacion",
     },
-  ], []);
+  ];
 
-  const stats = useMemo(() => [
+  const stats = [
     { value: 1500, prefix: "+", label: "Instalaciones" },
     { value: 24, suffix: "/7", label: "Soporte Técnico" },
     { value: 20, prefix: "+", suffix: " años", label: "Años de Experiencia" },
-  ], []);
+  ];
 
   return (
     <>
@@ -258,18 +298,26 @@ const Home = () => {
 
       <section className="w-full pt-0">
         {/* Sección de Presentación */}
-        <div className="w-full bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 py-8 md:py-24 relative overflow-hidden">
+        <div
+          className="w-full bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 py-8 md:py-24 relative overflow-hidden"
+        >
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="text-left">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 
+              <div className="text-left" data-aos="fade-right">
+                <h2
+                  className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 
                   bg-gradient-to-r from-white via-complemento-200 to-white bg-clip-text text-transparent
-                  animate-gradient leading-tight">
+                  animate-gradient leading-tight"
+                >
                   Transformamos la Energía en Bienestar
                 </h2>
 
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-                  En <span className="text-secondary-500 font-semibold">Kaizen</span>, brindamos soluciones integrales de gas natural
+                  En{" "}
+                  <span className="text-secondary-500 font-semibold">
+                    Kaizen
+                  </span>
+                  ,  brindamos soluciones integrales de gas natural
                   con garantía total en calidad y seguridad. Instaladores
                   certificados con 20 años de experiencia y especialistas en
                   transformar el consumo energético.
@@ -283,13 +331,23 @@ const Home = () => {
                       group relative overflow-hidden shadow-xl hover:shadow-secondary-500/50 transition-all duration-500"
                   >
                     <span className="relative z-10">Conoce Más de Nosotros</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/25 via-white/0 to-white/25 
-                      transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000">
-                    </div>
-                    <FontAwesomeIcon 
-                      icon={faChevronRight}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-r from-white/25 via-white/0 to-white/25 
+                      transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
+                    ></div>
+                    <svg
                       className="w-6 h-6 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
-                    />
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
                   </a>
                 </div>
               </div>
@@ -297,6 +355,7 @@ const Home = () => {
               <div
                 ref={videoSectionRef}
                 className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
+                data-aos="fade-left"
               >
                 <div className="absolute inset-0 z-10">
                   <iframe 
@@ -351,9 +410,12 @@ const Home = () => {
         </div>
 
         {/* Sección de Estadísticas */}
-        <div className="py-16 bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 text-white relative overflow-hidden">
+        <div 
+          className="py-16 bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 text-white relative overflow-hidden"
+        >
+          {/* Elementos decorativos */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute w-full h-full bg-gradient-to-br from-white/5 to-transparent"></div>
+            <div className="absolute w-full h-full bg-[url('data:image/svg+xml,...')] opacity-5"></div>
             {[...Array(20)].map((_, i) => (
               <div
                 key={i}
@@ -420,7 +482,7 @@ const Home = () => {
         <div className="border-t border-gray-100">
           <div className="container mx-auto">
             <div className="text-center py-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
                 Clientes que confian en nosotros
               </h2>
               <p className="text-primary-600 text-lg mb-8 max-w-2xl mx-auto">
