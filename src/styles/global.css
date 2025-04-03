@@ -1,3 +1,12 @@
+:root {
+  --primary-50: #f0f9ff; /* Example color */
+  --primary-100: #e0f2fe; /* Example color */
+  --primary-600: #2563eb; /* Example color */
+  --primary-700: #1d4ed8; /* Example color */
+  --primary-800: #1e40af; /* Example color */
+  /* Add other variable definitions as needed */
+}
+
 /* Estilos para los botones del lightbox */
 .lightbox-button {
   background-color: rgba(255, 255, 255, 0.9);
@@ -24,4 +33,4 @@
 .yarl__slide_image {
   max-height: 90vh;
   object-fit: contain;
-} 
+}
