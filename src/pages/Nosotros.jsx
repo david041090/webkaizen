@@ -138,7 +138,7 @@ const accordionItems = [
       <div className="md:grid md:grid-cols-2 md:gap-6">
         <ul className="list-disc list-inside text-primary-600 space-y-3">
           <li>
-            <h4 className="font-semibold text-primary-700 inline-block mb-1">Integridad</h4>
+            <h4 className="font-semibold text-primary-700 inline-block mb-1">Integridad.</h4>
             <p className="text-primary-600 pl-6">Actuamos con honestidad y transparencia en todas nuestras interacciones.</p>
           </li>
           <li>
