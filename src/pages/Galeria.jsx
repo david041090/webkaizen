@@ -140,39 +140,45 @@ const Galeria = () => {
   };
 
   return (
-    <div className="galeria-container">
-      <PageBanner
-        title="Galería"
-        backgroundImage={gasNaturalImage}
-        description="Explora nuestros proyectos"
-      />
-      
-      <div className="categorias-container">
-        {categorias.map((categoria) => (
-          <button
-            key={categoria}
-            className={`categoria-btn ${categoriaActiva === categoria ? 'active' : ''}`}
-            onClick={() => setCategoriaActiva(categoria)}
-          >
-            {categoria}
-          </button>
-        ))}
+    <div className="w-full relative">
+      <div className="absolute inset-0">
+        <PageBanner
+          title="Galería"
+          backgroundImage={gasNaturalImage}
+          description="Explora nuestros proyectos"
+        />
       </div>
 
-      <div className="gallery-grid">
-        {images.map((image, index) => (
-          <div 
-            key={index} 
-            className="gallery-item"
-            onClick={() => handleImageClick(image)}
-          >
-            <img
-              src={image.src}
-              alt={image.alt}
-              loading="lazy"
-            />
+      <div className="relative pt-[45vh] md:pt-[45vh]">
+        <div className="container mx-auto px-4">
+          <div className="categorias-container">
+            {categorias.map((categoria) => (
+              <button
+                key={categoria}
+                className={`categoria-btn ${categoriaActiva === categoria ? 'active' : ''}`}
+                onClick={() => setCategoriaActiva(categoria)}
+              >
+                {categoria}
+              </button>
+            ))}
           </div>
-        ))}
+
+          <div className="gallery-grid">
+            {images.map((image, index) => (
+              <div 
+                key={index} 
+                className="gallery-item"
+                onClick={() => handleImageClick(image)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {isModalOpen && selectedImage && (

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import gasImg from '../../assets/image/slider/gas.png';
 import cocinaImg from '../../assets/image/slider/cocina.jpg';
 import amacasaImg from '../../assets/image/slider/amacasa.jpg';
+import gasNaturalImg from '../../assets/image/slider/gas_natural.jpg';
 import kayzen from '../../assets/image/slider/img/01.png';
 import mantenimiento from '../../assets/image/slider/img/02.png';
 import certificado from '../../assets/image/slider/img/03.png';
