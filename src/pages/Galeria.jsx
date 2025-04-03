@@ -95,6 +95,7 @@ const Galeria = () => {
   const [categoriaActiva, setCategoriaActiva] = useState("Todos");
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const categorias = ["Todos", "Residencial", "Comercial", "Multifamiliar", "Industrial"];
 
   useEffect(() => {
@@ -129,8 +130,9 @@ const Galeria = () => {
     cargarImagenes();
   }, [categoriaActiva]);
 
-  const handleImageClick = (image) => {
+  const handleImageClick = (image, index) => {
     setSelectedImage(image);
+    setCurrentImageIndex(index);
     setIsModalOpen(true);
   };
 
@@ -138,6 +140,43 @@ const Galeria = () => {
     setIsModalOpen(false);
     setSelectedImage(null);
   };
+
+  const handlePrevImage = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => {
+      const newIndex = prev - 1;
+      if (newIndex < 0) return images.length - 1;
+      return newIndex;
+    });
+    setSelectedImage(images[currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1]);
+  };
+
+  const handleNextImage = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => {
+      const newIndex = prev + 1;
+      if (newIndex >= images.length) return 0;
+      return newIndex;
+    });
+    setSelectedImage(images[currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1]);
+  };
+
+  const handleKeyDown = (e) => {
+    if (!isModalOpen) return;
+    
+    if (e.key === 'ArrowLeft') {
+      handlePrevImage(e);
+    } else if (e.key === 'ArrowRight') {
+      handleNextImage(e);
+    } else if (e.key === 'Escape') {
+      handleCloseModal();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isModalOpen, currentImageIndex]);
 
   return (
     <div className="w-full relative">
@@ -168,7 +207,7 @@ const Galeria = () => {
               <div 
                 key={index} 
                 className="gallery-item"
-                onClick={() => handleImageClick(image)}
+                onClick={() => handleImageClick(image, index)}
               >
                 <img
                   src={image.src}
@@ -184,12 +223,38 @@ const Galeria = () => {
       {isModalOpen && selectedImage && (
         <div className="modal-overlay" onClick={handleCloseModal}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <button className="modal-close" onClick={handleCloseModal}>×</button>
+            <button 
+              className="modal-close absolute top-4 right-4 text-white text-3xl hover:text-gray-300" 
+              onClick={handleCloseModal}
+            >
+              ×
+            </button>
+            
+            <button
+              className="modal-nav-btn left-4 transform -translate-y-1/2"
+              onClick={handlePrevImage}
+              aria-label="Imagen anterior"
+            >
+              <i className="fas fa-chevron-left"></i>
+            </button>
+
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
               className="modal-image"
             />
+
+            <button
+              className="modal-nav-btn right-4 transform -translate-y-1/2"
+              onClick={handleNextImage}
+              aria-label="Imagen siguiente"
+            >
+              <i className="fas fa-chevron-right"></i>
+            </button>
+
+            <div className="image-counter">
+              {currentImageIndex + 1} / {images.length}
+            </div>
           </div>
         </div>
       )}
