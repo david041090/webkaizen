@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Gallery from 'react-photo-gallery';
 import PageBanner from '../components/PageBanner';
 import gasNaturalImage from '../assets/image/slider/gas_natural.jpg';
 import configGaleria from '../config/galeria.json';
@@ -261,40 +260,28 @@ const Galeria = () => {
 
           <div className="mb-12">
             {imagenesFiltradas.length > 0 ? (
-              <div className="gallery-container">
-                {/* Implementación alternativa para dispositivos móviles */}
-                {isMobile ? (
-                  <div className="grid grid-cols-2 gap-1">
-                    {imagenesFiltradas.map((photo, index) => (
-                      <div 
-                        key={index}
-                        className="relative aspect-square overflow-hidden rounded"
-                        onClick={() => {
-                          setPhotoIndex(index);
-                          setIsOpen(true);
-                        }}
-                      >
-                        <img
-                          src={photo.src}
-                          alt={photo.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <Gallery
-                    photos={imagenesFiltradas}
-                    onClick={handleClick}
-                    renderImage={imageRenderer}
-                    margin={4}
-                    columns={(containerWidth) => {
-                      if (containerWidth >= 1200) return 5;
-                      if (containerWidth >= 900) return 4;
-                      return 3;
+              <div className="gallery-grid">
+                {imagenesFiltradas.map((photo, index) => (
+                  <div
+                    key={index}
+                    className="gallery-item"
+                    onClick={() => {
+                      setPhotoIndex(index);
+                      setIsOpen(true);
                     }}
-                  />
-                )}
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.title}
+                      className="gallery-image"
+                    />
+                    {!isMobile && (
+                      <div className="image-caption">
+                        {photo.title}
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             ) : (
               <div className="text-center py-8">
@@ -337,19 +324,72 @@ const Galeria = () => {
       </div>
 
       <style jsx>{`
-        .gallery-container {
+        .gallery-grid {
+          column-count: 5;
+          column-gap: 8px;
+          padding: 4px;
+        }
+
+        @media (max-width: 1200px) {
+          .gallery-grid {
+            column-count: 4;
+          }
+        }
+
+        @media (max-width: 900px) {
+          .gallery-grid {
+            column-count: 3;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .gallery-grid {
+            column-count: 2;
+            column-gap: 4px;
+            padding: 2px;
+          }
+        }
+
+        .gallery-item {
+          break-inside: avoid;
+          margin-bottom: 8px;
+          position: relative;
+          border-radius: 6px;
           overflow: hidden;
+          cursor: pointer;
+          transition: transform 0.3s ease-in-out;
         }
-        .gallery-container:hover .image-caption {
+
+        .gallery-item:hover {
+          transform: scale(1.02);
+        }
+
+        .gallery-image {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 6px;
+        }
+
+        .image-caption {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 6px;
+          background: linear-gradient(transparent, rgba(0,0,0,0.7));
+          color: white;
+          font-size: 12px;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover .image-caption {
           opacity: 1;
-        }
-        
-        .aspect-square {
-          aspect-ratio: 1/1;
         }
       `}</style>
     </div>
   );
 };
 
-export default Galeria; 
+export default Galeria;
