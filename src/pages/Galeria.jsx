@@ -150,8 +150,8 @@ const Galeria = () => {
       </div>
 
       <div className="relative pt-[45vh] md:pt-[45vh]">
-        <div className="container mx-auto px-4">
-          <div className="categorias-container">
+        <div className="container mx-auto px-4 pt-12 md:pt-16">
+          <div className="categorias-container mb-8">
             {categorias.map((categoria) => (
               <button
                 key={categoria}
