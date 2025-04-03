@@ -1,3 +1,4 @@
+// Remove any imports related to react-image-lightbox
 import React, { useState, useEffect } from 'react';
 import PageBanner from '../components/PageBanner';
 import gasNaturalImage from '../assets/image/slider/gas_natural.jpg';
@@ -132,7 +133,7 @@ const Galeria = () => {
     ? images
     : images.filter(imagen => imagen.categoria === categoriaActiva);
 
-  const handleClick = (event, { index }) => {
+  const handleClick = (index) => {
     setPhotoIndex(index);
     setIsOpen(true);
   };
@@ -302,21 +303,15 @@ const Galeria = () => {
               </div>
               <button
                 onClick={handleMovePrev}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white w-10 h-10 rounded-full hover:bg-black/80 transition-all duration-300 flex items-center justify-center"
-                aria-label="Imagen anterior"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white w-10 h-10 rounded-full hover:bg-black/80"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
+                ←
               </button>
               <button
                 onClick={handleMoveNext}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white w-10 h-10 rounded-full hover:bg-black/80 transition-all duration-300 flex items-center justify-center"
-                aria-label="Siguiente imagen"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white w-10 h-10 rounded-full hover:bg-black/80"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                →
               </button>
             </div>
           </Modal>
