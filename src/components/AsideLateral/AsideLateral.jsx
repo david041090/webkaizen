@@ -10,7 +10,7 @@ const SOCIAL_LINKS = [
 ];
 
 const CONTACT_INFO = [
-  { icon: "fa-phone", title: "Teléfonos", content: ["01-6828303", "+51 9363858"] },
+  { icon: "fa-phone", title: "Teléfonos", content: ["01-6828303", "959 363858"] },
   { icon: "fa-envelope", title: "Correo", content: ["grupokaizen.ing@gmail.com"] },
   { icon: "fa-map-marker-alt", title: "Dirección", content: ["Jr. Bartolomé Ruiz 293, Urb. Salamanca de Monterrico, Ate"] },
   { 
