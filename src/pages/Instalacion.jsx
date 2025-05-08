@@ -50,7 +50,7 @@ const Instalacion = () => {
       title: "Residencial",
       icon: <i className="fa-solid fa-home text-current icon-small"></i>,
       description: "La instalación de gas doméstico consiste en el diseño, montaje y puesta en funcionamiento de un sistema que permite llevar gas natural o GLP desde una fuente de suministro hasta los puntos de consumo dentro de una vivienda (Cocinas, termas, etc).",
-      additionalInfo: "Kaizen en convenio con el programa Bonogas del Ministerio de Energía y Minas, busca facilitar el acceso al gas natural a través del subsidio con los costos de instalación del servicio de gas natural como una opción más económica, segura y sostenible.",
+      additionalInfo: "Grupo Kaizen en convenio con el programa Bonogas del Ministerio de Energía y Minas, busca facilitar el acceso al gas natural a través del subsidio con los costos de instalación del servicio de gas natural como una opción más económica, segura y sostenible.",
       image: residencial,
       subtitle: "La solución segura y económica para tu hogar"
     },
@@ -291,25 +291,25 @@ const Instalacion = () => {
                           {
                             icon: "fa-solid fa-bullhorn",
                             title: "PASO 1",
-                            subtitle: "DIFUSIÓN DEL PROGRAMA Y/O SERVICIOS",
+                            subtitle: "DIFUSIÓN DEL PROGRAMA ",
                             description: "Información completa sobre nuestros servicios y beneficios del programa."
                           },
                           {
                             icon: "fa-solid fa-file-signature",
                             title: "PASO 2",
-                            subtitle: "SUSCRIPCIÓN DE CONTRATO",
-                            description: "Formalización del servicio con términos y condiciones claras."
+                            subtitle: "VISITA TECNICA",
+                            description: "En la visita técnica se determinara el recorrido de la instalación en coordinación con el usuario."
                           },
                           {
                             icon: "fa-solid fa-wrench",
                             title: "PASO 3",
-                            subtitle: "CONSTRUCCIÓN DE LA INSTALACIÓN INTERNA",
-                            description: "Instalación profesional de tuberías y conexiones internas."
+                            subtitle: "SUSCRIPCION DE CONTRATO",
+                            description: "Formalización del servicio con términos y condiciones claras."
                           },
                           {
                             icon: "fa-solid fa-network-wired",
                             title: "PASO 4",
-                            subtitle: "CONSTRUCCIÓN DE LA INSTALACIÓN EXTERNA",
+                            subtitle: "CONSTRUCCION DE LA RED EXTERNA",
                             description: "Conexión segura a la red de distribución externa."
                           },
                           {
@@ -321,7 +321,7 @@ const Instalacion = () => {
                           {
                             icon: "fa-solid fa-headset",
                             title: "PASO 6",
-                            subtitle: "ATENCIÓN AL USUARIO",
+                            subtitle: "ATENCIÓN AL USUARIO - MANTENIMIENTO DE SERVICIO",
                             description: "Soporte continuo y servicio post-instalación."
                           }
                         ];
