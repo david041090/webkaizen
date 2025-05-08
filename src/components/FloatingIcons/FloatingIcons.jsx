@@ -9,7 +9,7 @@ const FloatingIcons = () => {
   const whatsappNumber = "51959363858"; // Reemplazar con el número real
   const whatsappMessage = "Hola Grupo Kaizen, estoy interesado en sus servicios de gas natural...";
   const facebookPageUrl = "https://www.facebook.com/profile.php?id=100078954631590"; // URL directa a la página de Facebook
-  const phoneNumber = "51925512728"; // Número para llamadas
+  const phoneNumber = "51959363858"; // Número para llamadas
 
   // URLs para los enlaces
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
