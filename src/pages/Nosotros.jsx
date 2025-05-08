@@ -124,12 +124,12 @@ const sliderImages = [
 const accordionItems = [
   {
     title: "Misión",
-    content: "somos una empresa cpmprometida en el desarrolo del país, por ello creemos que es fundamental el acceso a nuevas energías para dar una mejor calidad de vidad y de aporte económico con negocios sostenibles. Nosostros construimos para desbloquear el potencial.",
+    content: "Somos una empresa comprometida en el desarrollo del país, por ello creemos que es fundamental el acceso a nuevas energías para dar una mejor calidad de vida y de aporte económico con negocios sostenibles. Nosostros construimos para desbloquear el potencial.",
     icon: <i className="fas fa-bullseye"></i>
   },
   {
     title: "Visión",
-    content: "Se una empresa líder en el mercado en instalaciones de gas con eficiencia y responsabilidad sostenible. Con valores orientados en las personas, centrados en el cliente, respetamos el medio ambiente, siempre impulsados por la innovación y porsupuesto diversos e inclusivos.",
+    content: "Ser una empresa líder en el mercado en instalaciones de gas con eficiencia y responsabilidad sostenible. Con valores orientados en las personas, centrados en el cliente, respetamos el medio ambiente, siempre impulsados por la innovación y porsupuesto diversos e inclusivos.",
     icon: <i className="fas fa-eye"></i>
   },
   {
