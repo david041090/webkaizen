@@ -388,7 +388,7 @@ const Home = () => {
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-center">
               {stats.map((stat, index) => (
                 <div
                   key={index}
