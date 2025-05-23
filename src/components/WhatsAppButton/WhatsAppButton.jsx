@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const WhatsAppButton = ({ 
-  phoneNumber = "51999393895",
+  phoneNumber = "51959363858",
   text = "Escribir a WhatsApp",
   className = "",
   variant = "default" // default | inline

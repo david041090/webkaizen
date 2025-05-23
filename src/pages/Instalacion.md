@@ -330,116 +330,116 @@ const Instalacion = () => {
                           {
                             icon: "fa-solid fa-bullhorn",
                             title: "PASO 1",
-                            subtitle: "DIFUSIÓN DEL PROGRAMA ",
-                            description: "Información completa sobre nuestros servicios y beneficios del programa."
+                            subtitle: "DIFUSIÓN DEL PROGRAMA Y/O SERVICIOS",
+                            description: "Información detallada sobre nuestros servicios de instalación comercial."
                           },
                           {
                             icon: "fa-solid fa-file-signature",
                             title: "PASO 2",
-                            subtitle: "VISITA TECNICA",
-                            description: "En la visita técnica se determinara el recorrido de la instalación en coordinación con el usuario."
+                            subtitle: "SUSCRIPCIÓN DE CONTRATO",
+                            description: "Formalización del servicio con términos y condiciones específicos para negocios."
                           },
                           {
                             icon: "fa-solid fa-wrench",
                             title: "PASO 3",
-                            subtitle: "SUSCRIPCION DE CONTRATO",
-                            description: "Formalización del servicio con términos y condiciones claras."
+                            subtitle: "CONSTRUCCIÓN DE LA INSTALACIÓN INTERNA",
+                            description: "Instalación profesional de tuberías y conexiones internas para uso comercial."
                           },
                           {
                             icon: "fa-solid fa-network-wired",
                             title: "PASO 4",
-                            subtitle: "CONSTRUCCION DE LA RED EXTERNA",
-                            description: "Conexión segura a la red de distribución externa."
+                            subtitle: "CONSTRUCCIÓN DE LA INSTALACIÓN EXTERNA",
+                            description: "Conexión segura a la red de distribución externa y sistemas de regulación."
                           },
                           {
                             icon: "fa-solid fa-check-circle",
                             title: "PASO 5",
                             subtitle: "HABILITACIÓN DEL SERVICIO",
-                            description: "Pruebas de seguridad y activación del servicio."
+                            description: "Pruebas de seguridad y activación del servicio comercial."
                           },
                           {
                             icon: "fa-solid fa-headset",
                             title: "PASO 6",
-                            subtitle: "ATENCIÓN AL USUARIO - MANTENIMIENTO DE SERVICIO",
-                            description: "Soporte continuo y servicio post-instalación."
+                            subtitle: "ATENCIÓN AL USUARIO",
+                            description: "Soporte continuo y servicio post-instalación para su negocio."
                           }
                         ];
                       } else if (type.id === INSTALLATION_TYPES.MULTIFAMILIAR) {
                         pasos = [
                           {
-                            icon: "fa-solid fa-bullhorn",
+                            icon: "fa-solid fa-clipboard-check",
                             title: "PASO 1",
-                            subtitle: "DIFUSIÓN DEL PROGRAMA ",
-                            description: "Información completa sobre nuestros servicios y beneficios del programa."
+                            subtitle: "EVALUACIÓN Y DISEÑO",
+                            description: "Inspección técnica y diseño del sistema centralizado."
                           },
                           {
-                            icon: "fa-solid fa-file-signature",
+                            icon: "fa-solid fa-network-wired",
                             title: "PASO 2",
-                            subtitle: "VISITA TECNICA",
-                            description: "En la visita técnica se determinara el recorrido de la instalación en coordinación con el usuario."
+                            subtitle: "INFRAESTRUCTURA EXTERNA",
+                            description: "Conexión al suministro principal y red externa."
                           },
                           {
                             icon: "fa-solid fa-wrench",
                             title: "PASO 3",
-                            subtitle: "SUSCRIPCION DE CONTRATO",
-                            description: "Formalización del servicio con términos y condiciones claras."
+                            subtitle: "INFRAESTRUCTURA INTERNA",
+                            description: "Instalación de redes y medidores individuales."
                           },
                           {
-                            icon: "fa-solid fa-network-wired",
+                            icon: "fa-solid fa-plug",
                             title: "PASO 4",
-                            subtitle: "CONSTRUCCION DE LA RED EXTERNA",
-                            description: "Conexión segura a la red de distribución externa."
+                            subtitle: "CONEXIONES INDIVIDUALES",
+                            description: "Conexión a cada vivienda y sus artefactos."
+                          },
+                          {
+                            icon: "fa-solid fa-vial",
+                            title: "PASO 5",
+                            subtitle: "PRUEBAS Y CERTIFICACIÓN",
+                            description: "Verificación de seguridad y certificación."
                           },
                           {
                             icon: "fa-solid fa-check-circle",
-                            title: "PASO 5",
-                            subtitle: "HABILITACIÓN DEL SERVICIO",
-                            description: "Pruebas de seguridad y activación del servicio."
-                          },
-                          {
-                            icon: "fa-solid fa-headset",
                             title: "PASO 6",
-                            subtitle: "ATENCIÓN AL USUARIO - MANTENIMIENTO DE SERVICIO",
-                            description: "Soporte continuo y servicio post-instalación."
+                            subtitle: "HABILITACIÓN",
+                            description: "Puesta en marcha del sistema centralizado."
                           }
                         ];
                       } else if (type.id === INSTALLATION_TYPES.INDUSTRIAL) {
                         pasos = [
                           {
-                            icon: "fa-solid fa-bullhorn",
+                            icon: "fa-solid fa-search",
                             title: "PASO 1",
-                            subtitle: "DIFUSIÓN DEL PROGRAMA ",
-                            description: "Información completa sobre nuestros servicios y beneficios del programa."
+                            subtitle: "EVALUACIÓN INICIAL Y DISEÑO",
+                            description: "Estudio técnico completo y diseño especializado del sistema."
                           },
                           {
-                            icon: "fa-solid fa-file-signature",
+                            icon: "fa-solid fa-network-wired",
                             title: "PASO 2",
-                            subtitle: "VISITA TECNICA",
-                            description: "En la visita técnica se determinara el recorrido de la instalación en coordinación con el usuario."
+                            subtitle: "INFRAESTRUCTURA EXTERNA",
+                            description: "Instalación de EMR y conexión a la red principal."
                           },
                           {
                             icon: "fa-solid fa-wrench",
                             title: "PASO 3",
-                            subtitle: "SUSCRIPCION DE CONTRATO",
-                            description: "Formalización del servicio con términos y condiciones claras."
+                            subtitle: "INFRAESTRUCTURA INTERNA",
+                            description: "Instalación de tuberías y sistemas de seguridad internos."
                           },
                           {
-                            icon: "fa-solid fa-network-wired",
+                            icon: "fa-solid fa-vial",
                             title: "PASO 4",
-                            subtitle: "CONSTRUCCION DE LA RED EXTERNA",
-                            description: "Conexión segura a la red de distribución externa."
+                            subtitle: "PRUEBAS Y CERTIFICACIÓN",
+                            description: "Pruebas de hermeticidad y certificación del sistema."
                           },
                           {
                             icon: "fa-solid fa-check-circle",
                             title: "PASO 5",
-                            subtitle: "HABILITACIÓN DEL SERVICIO",
-                            description: "Pruebas de seguridad y activación del servicio."
+                            subtitle: "PUESTA EN MARCHA",
+                            description: "Activación y pruebas finales del sistema."
                           },
                           {
-                            icon: "fa-solid fa-headset",
+                            icon: "fa-solid fa-tools",
                             title: "PASO 6",
-                            subtitle: "ATENCIÓN AL USUARIO - MANTENIMIENTO DE SERVICIO",
-                            description: "Soporte continuo y servicio post-instalación."
+                            subtitle: "MANTENIMIENTO",
+                            description: "Mantenimiento preventivo y atención continua."
                           }
                         ];
                       }

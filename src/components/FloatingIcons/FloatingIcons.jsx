@@ -6,13 +6,14 @@ const FloatingIcons = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   // Información de contacto (reemplazar con información real)
-  const whatsappNumber = "51999393895"; // Reemplazar con el número real
+  const whatsappNumber = "51959363858"; // Reemplazar con el número real
   const whatsappMessage = "Hola Grupo Kaizen, estoy interesado en sus servicios de gas natural...";
-  const facebookPageId = "grupokaizen"; // Reemplazar con el ID real
+  const facebookPageUrl = "https://www.facebook.com/profile.php?id=100078954631590"; // URL directa a la página de Facebook
+  const phoneNumber = "51959363858"; // Número para llamadas
 
   // URLs para los enlaces
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-  const facebookUrl = `https://m.me/${facebookPageId}`;
+  const phoneUrl = `tel:${phoneNumber}`;
 
   // Detectar si es un dispositivo móvil
   useEffect(() => {
@@ -129,19 +130,33 @@ const FloatingIcons = () => {
           </span>
         </a>
 
-        {/* Facebook Messenger */}
+        {/* Facebook - enlace directo a la página de Facebook */}
         <a 
-          href={facebookUrl}
+          href={facebookPageUrl}
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-blue-500 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 relative group"
-          aria-label="Contactar por Messenger"
+          className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-110 relative group"
+          aria-label="Visitar página de Facebook"
         >
-          <i className="fab fa-facebook-messenger text-white text-2xl"></i>
-          <span className="absolute right-full mr-3 bg-blue-500 text-white text-xs py-1 px-2 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            Messenger
+          <i className="fab fa-facebook-f text-white text-2xl"></i>
+          <span className="absolute right-full mr-3 bg-blue-600 text-white text-xs py-1 px-2 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Facebook
           </span>
         </a>
+
+        {/* Botón de llamada - solo visible en móvil */}
+        {isMobile && (
+          <a 
+            href={phoneUrl}
+            className="bg-red-500 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-all duration-300 transform hover:scale-110 relative group"
+            aria-label="Llamar ahora"
+          >
+            <i className="fas fa-phone-alt text-white text-xl"></i>
+            <span className="absolute right-full mr-3 bg-red-500 text-white text-xs py-1 px-2 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Llamar
+            </span>
+          </a>
+        )}
       </div>
 
       {/* Texto emergente al expandir */}
@@ -152,7 +167,10 @@ const FloatingIcons = () => {
       }`}>
         <div className="text-primary-700 font-medium mb-2">¿Necesitas ayuda?</div>
         <p className="text-primary-600 text-sm">
-          Contacta con nuestro equipo a través de WhatsApp o Messenger y te atenderemos inmediatamente.
+          {isMobile 
+            ? "Contacta con nuestro equipo a través de WhatsApp, Facebook o llámanos directamente."
+            : "Contacta con nuestro equipo a través de WhatsApp o visita nuestra página de Facebook."
+          }
         </p>
         <div className="absolute -bottom-2 right-10 w-4 h-4 bg-white transform rotate-45"></div>
       </div>
@@ -160,4 +178,4 @@ const FloatingIcons = () => {
   );
 };
 
-export default FloatingIcons; 
+export default FloatingIcons;

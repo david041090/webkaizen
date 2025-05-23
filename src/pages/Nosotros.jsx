@@ -10,7 +10,7 @@ import nosotros1 from '../assets/image/nosotros/01.jpg';
 import nosotros2 from '../assets/image/nosotros/02.jpg';
 import nosotros3 from '../assets/image/nosotros/03.jpg';
 import nosotros4 from '../assets/image/nosotros/04.jpg';
-import nosotros5 from '../assets/image/nosotros/05.jpg';
+//import nosotros5 from '../assets/image/nosotros/05.jpg';
 
 // Imágenes del equipo
 import team1 from '../assets/image/team/01.png';
@@ -19,7 +19,7 @@ import team3 from '../assets/image/team/03.png';
 import team4 from '../assets/image/team/04.png';
 import team5 from '../assets/image/team/05.png';
 import team6 from '../assets/image/team/06.png';
-import team7 from '../assets/image/team/07.png';
+//import team7 from '../assets/image/team/07.png';
 
 // Constantes
 const SLIDER_SETTINGS = {
@@ -118,18 +118,18 @@ const sliderImages = [
   { src: nosotros2, alt: "Equipo profesional" },
   { src: nosotros3, alt: "Proyectos completados" },
   { src: nosotros4, alt: "Servicios de calidad" },
-  { src: nosotros5, alt: "Trabajo en equipo" }
+  //{ src: nosotros5, alt: "Trabajo en equipo" }
 ];
 
 const accordionItems = [
   {
     title: "Misión",
-    content: "Nos dedicamos a proporcionar soluciones innovadoras y de alta calidad que transforman la manera en que nuestros clientes interactúan con la tecnología. Nos esforzamos por crear un impacto positivo y duradero en cada proyecto que emprendemos.",
+    content: "Somos una empresa comprometida en el desarrollo del país, por ello creemos que es fundamental el acceso a nuevas energías para dar una mejor calidad de vida y de aporte económico con negocios sostenibles. Nosostros construimos para desbloquear el potencial.",
     icon: <i className="fas fa-bullseye"></i>
   },
   {
     title: "Visión",
-    content: "Aspiramos a ser líderes globales en innovación tecnológica, estableciendo nuevos estándares de excelencia y creando soluciones que inspiren y empoderen a las futuras generaciones.",
+    content: "Ser una empresa líder en el mercado en instalaciones de gas con eficiencia y responsabilidad sostenible. Con valores orientados en las personas, centrados en el cliente, respetamos el medio ambiente, siempre impulsados por la innovación y porsupuesto diversos e inclusivos.",
     icon: <i className="fas fa-eye"></i>
   },
   {
@@ -164,40 +164,36 @@ const accordionItems = [
 
 const teamMembers = [
   {
-    name: "Miembro 1",
-    position: "Cargo 1",
+    name: "ANDY GUILLÉN",
+    position: "GERENTE GENERAL ",
     image: team1
   },
   {
-    name: "Miembro 2",
-    position: "Cargo 2",
+    name: "ELIZABETH PARIONA",
+    position: "ASISTENTE CONTABLE",
     image: team2
   },
   {
-    name: "Miembro 3",
-    position: "Cargo 3",
+    name: "ABEL CUBA",
+    position: "ASESOR COMERCIAL",
     image: team3
   },
   {
-    name: "Miembro 4",
-    position: "Cargo 4",
+    name: "LEIYA SANTIAGO",
+    position: "ASISTENTE DE PROGRAMACIÓN",
     image: team4
   },
   {
-    name: "Miembro 5",
-    position: "Cargo 5",
+    name: "ARIANA SANTIAGO",
+    position:  "ASISTENTE DE PROGRAMACIÓN",
     image: team5
   },
   {
-    name: "Miembro 6",
-    position: "Cargo 6",
+    name: "MANUEL LANDAETA",
+    position: "ASISTENTE COMERCIAL",
     image: team6
   },
-  {
-    name: "Miembro 7",
-    position: "Cargo 7",
-    image: team7
-  }
+
 ];
 
 const features = [
@@ -341,7 +337,7 @@ const Nosotros = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 grid-spacing">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 grid-spacing">
             {teamMembers.map((member, index) => (
               <TeamMemberCard 
                 key={index}

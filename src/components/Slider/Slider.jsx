@@ -135,7 +135,7 @@ const slides = [
   {
     title: 'Instalación de',
     highlight: 'Gas Natural',
-    subtitle: 'Soluciones profesionales para hogares y empresas. Transformamos espacios con instalaciones seguras y certificadas, garantizando confort y eficiencia.',
+    subtitle: 'SOMOS ESPECIALISTAS EN INSTALACIONES DE GAS NATURAL. Transformamos espacios con instalaciones seguras y certificadas, garantizando confort y eficiencia.',
     stats: [
       { value: '15+', label: 'Años de Experiencia' },
       { value: '1800+', label: 'Instalaciones Exitosas' }

@@ -10,7 +10,7 @@ const SOCIAL_LINKS = [
 ];
 
 const CONTACT_INFO = [
-  { icon: "fa-phone", title: "Teléfonos", content: ["01-6828303", "+51 9363858"] },
+  { icon: "fa-phone", title: "Teléfonos", content: ["01-6828303", "959 363858"] },
   { icon: "fa-envelope", title: "Correo", content: ["grupokaizen.ing@gmail.com"] },
   { icon: "fa-map-marker-alt", title: "Dirección", content: ["Jr. Bartolomé Ruiz 293, Urb. Salamanca de Monterrico, Ate"] },
   { 
@@ -145,10 +145,10 @@ const AsideLateral = ({ isOpen, onClose }) => {
                 <SectionTitle>Sobre Nosotros</SectionTitle>
                 <div className="space-y-4">
                   <InfoCard icon="fa-star" title="Misión">
-                    Proporcionar soluciones energéticas sostenibles y eficientes que mejoren la calidad de vida de nuestros clientes.
+                  Somos una empresa comprometida en el desarrollo del país, por ello creemos que es fundamental el acceso a nuevas energías para dar una mejor calidad de vida y de aporte económico con negocios sostenibles. Nosostros construimos para desbloquear el potencial.
                   </InfoCard>
                   <InfoCard icon="fa-chart-line" title="Visión">
-                    Ser líderes en la transformación hacia un mundo energéticamente sostenible.
+                  Ser una empresa líder en el mercado en instalaciones de gas con eficiencia y responsabilidad sostenible. Con valores orientados en las personas, centrados en el cliente, respetamos el medio ambiente, siempre impulsados por la innovación y porsupuesto diversos e inclusivos.
                   </InfoCard>
                 </div>
               </section>

@@ -55,7 +55,7 @@ const GasNatural = () => {
                 <div className="flex flex-col gap-4">
                   {/* Encabezado con icono y título */}
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-complemento-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <i className={`${beneficio.icon} text-white text-2xl`}></i>
                     </div>
                     <h3 className="heading-4 text-primary-700">{beneficio.title}</h3>

@@ -24,7 +24,7 @@ const menuItems = [
     icon: 'fas fa-info-circle',
     title: '¿Qué es',
     subtitle: 'BonoGas?',
-    path: 'https://www.gob.pe/44184-programa-bonogas',
+    path: 'https://fise.gob.pe/',
     isExternal: true
   },
   {
