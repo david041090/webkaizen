@@ -425,12 +425,13 @@ const Home = () => {
                 Contáctanos hoy mismo y obtén una cotización gratuita para tu
                 instalación
               </p>
-              <button
-                className="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-3 rounded-lg 
-                transition-all duration-300 transform hover:scale-105 text-lg font-medium"
+              <a
+                href="/contacto"
+                className="inline-block bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-3 rounded-lg 
+                transition-all duration-300 transform hover:scale-105 text-lg font-medium text-center"
               >
                 Solicitar Cotización
-              </button>
+              </a>
             </div>
           </div>
         </div>

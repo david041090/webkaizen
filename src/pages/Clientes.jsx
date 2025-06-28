@@ -387,11 +387,14 @@ const Clientes = () => {
             <p className="text-body text-primary-100 mb-3 md:mb-4 max-w-2xl mx-auto">
               Descubre cómo podemos ayudarte a implementar soluciones de gas natural eficientes y seguras.
             </p>
-            <button className="bg-complemento-500 hover:bg-complemento-600 text-white px-4 md:px-6 py-2 rounded-lg 
+            <a 
+              href="/contacto"
+              className="inline-block bg-complemento-500 hover:bg-complemento-600 text-white px-4 md:px-6 py-2 rounded-lg 
               transition-all duration-300 transform hover:scale-105
-              hover:shadow-lg hover:shadow-complemento-500/25">
+              hover:shadow-lg hover:shadow-complemento-500/25 text-center"
+            >
               Solicitar Información
-            </button>
+            </a>
           </section>
         </div>
       </div>

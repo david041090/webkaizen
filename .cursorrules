@@ -1,0 +1,320 @@
+# WebKaizen - Reglas de Desarrollo
+
+## 🎯 Contexto del Proyecto
+Aplicación React corporativa para empresa de servicios de gas natural e instalaciones. Enfoque en diseño responsivo, componentes reutilizables y experiencia de usuario optimizada.
+
+## 🏗️ Arquitectura y Estructura
+
+### Organización de Archivos
+- `src/components/`: Componentes reutilizables organizados por carpetas con index.js
+- `src/pages/`: Páginas principales de la aplicación
+- `src/layouts/`: Layouts principales (MainLayout)
+- `src/routes/`: Configuración de rutas centralizadas
+- `src/assets/`: Recursos organizados por tipo (image/, fonts/)
+- `src/config/`: Archivos de configuración (galeria.json)
+- `src/styles/`: Estilos globales y sistema de temas
+- `src/docs/`: Documentación de componentes
+
+### Convenciones de Nomenclatura
+- Componentes: PascalCase (ej: `ServiceCard`, `WhatsAppButton`)
+- Archivos: PascalCase para componentes, camelCase para utilidades
+- Carpetas: PascalCase para componentes, camelCase para otros
+- Variables y funciones: camelCase
+- Constantes: SCREAMING_SNAKE_CASE
+- Rutas: kebab-case para URLs (/gas-natural, /nosotros)
+
+## 🎨 Sistema de Diseño
+
+### Clases de Utilidad Responsiva (OBLIGATORIO usar en lugar de Tailwind repetitivo)
+```css
+/* Tipografía */
+.heading-1    /* En lugar de text-2xl sm:text-3xl md:text-4xl lg:text-5xl */
+.heading-2    /* En lugar de text-xl sm:text-2xl md:text-3xl lg:text-4xl */
+.heading-3    /* En lugar de text-lg sm:text-xl md:text-2xl lg:text-3xl */
+.text-body    /* En lugar de text-sm sm:text-base md:text-base lg:text-lg */
+.text-body-lg /* Para texto destacado */
+.text-body-sm /* Para texto secundario */
+
+/* Espaciado */
+.section-spacing   /* Para espaciado entre secciones */
+.container-spacing /* Para padding interno de contenedores */
+.item-spacing     /* Para margin bottom entre elementos */
+.grid-spacing     /* Para gaps en grids */
+
+/* Iconos */
+.icon-small   /* Para iconos pequeños */
+.icon-medium  /* Para iconos medianos */
+.icon-large   /* Para iconos grandes */
+```
+
+### Paleta de Colores
+```javascript
+// Colores principales definidos en tailwind.config.js
+primary: {
+  50: "#DBEBFF",   // Más claro
+  500: "#004EB0",  // Principal
+  900: "#001024"   // Más oscuro
+}
+secondary: {
+  500: "#2AAAE1"   // Azul claro
+}
+complemento: {
+  300: "#7EF1E9",  // Turquesa para acentos
+  500: "#27E7D9"   // Turquesa principal
+}
+```
+
+## ⚛️ Desarrollo React
+
+### Estructura de Componentes
+```jsx
+// Estructura estándar para componentes
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // SIEMPRE incluir PropTypes
+
+const ComponentName = ({ prop1, prop2, ...rest }) => {
+  // 1. Estados locales
+  const [state, setState] = useState(initialValue);
+  
+  // 2. Effects
+  useEffect(() => {
+    // Lógica de efectos
+  }, [dependencies]);
+  
+  // 3. Funciones auxiliares
+  const handleAction = () => {
+    // Lógica
+  };
+  
+  // 4. Render
+  return (
+    <div className="responsive-classes">
+      {/* Contenido */}
+    </div>
+  );
+};
+
+ComponentName.propTypes = {
+  prop1: PropTypes.string.required,
+  prop2: PropTypes.number
+};
+
+ComponentName.defaultProps = {
+  prop2: 0
+};
+
+export default ComponentName;
+```
+
+### Hooks y Estado
+- Usar `useState` para estado local simple
+- Usar `useEffect` para efectos de lado
+- Implementar custom hooks para lógica reutilizable
+- Evitar prop drilling, considerar Context API para estado global
+
+### Optimización
+- Usar `React.memo` para componentes que no cambian frecuentemente
+- Implementar `useMemo` y `useCallback` cuando sea necesario
+- Lazy loading para rutas: `React.lazy()` con `Suspense`
+
+## 🛣️ Routing y Navegación
+
+### Configuración de Rutas
+```jsx
+// En AppRoutes.jsx - mantener organización actual
+const routes = [
+  { path: '/', component: Home },
+  { path: '/nosotros', component: Nosotros },
+  // ... más rutas
+];
+```
+
+### Navegación
+- Usar `Link` de react-router-dom para navegación interna
+- Usar `useLocation` para obtener ruta actual
+- Implementar scroll to top en cambios de página
+- Mantener estado de navegación en Navbar
+
+## 💫 Animaciones y Transiciones
+
+### Librerías Aprobadas
+- **Framer Motion**: Para animaciones complejas de componentes
+- **GSAP**: Para animaciones de scroll y elementos específicos
+- **CSS Transitions**: Para hover effects y transiciones simples
+
+### Patrones de Animación
+```jsx
+// Framer Motion - entrada de componentes
+const variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+<motion.div
+  initial="hidden"
+  animate="visible"
+  variants={variants}
+  transition={{ duration: 0.5 }}
+>
+  {/* Contenido */}
+</motion.div>
+```
+
+## 🖼️ Gestión de Assets
+
+### Imágenes
+- Organizar por carpetas temáticas en `/src/assets/image/`
+- Usar formatos optimizados (WebP cuando sea posible)
+- Implementar lazy loading para galerías
+- Mantener nomenclatura descriptiva: `categoria/numeracion.extension`
+
+### Configuración de Galería
+- Usar `galeria.json` para metadatos de imágenes
+- Mantener estructura consistente:
+```json
+{
+  "id": number,
+  "src": "ruta/imagen",
+  "width": number,
+  "height": number,
+  "caption": "string descriptivo"
+}
+```
+
+## 🎛️ Componentes Reutilizables
+
+### Componentes Base (USAR SIEMPRE que sea posible)
+- `Button` - Sistema de botones con variantes
+- `Card` - Tarjetas informativas
+- `SectionTitle` - Títulos de sección estandarizados
+- `FeatureSection` - Secciones de características
+- `WhatsAppButton` - Botón de contacto WhatsApp
+- `ActionButton` - Botones de acción versátiles
+
+### Crear Nuevos Componentes
+1. Verificar si existe componente similar
+2. Crear en carpeta propia con `index.js`
+3. Documentar en `src/docs/COMPONENTS.md`
+4. Incluir PropTypes y defaultProps
+5. Seguir sistema de variantes establecido
+
+## 📱 Responsividad
+
+### Breakpoints Tailwind
+```css
+/* Usar breakpoints estándar */
+sm: 640px   /* Tablets */
+md: 768px   /* Tablets grandes */
+lg: 1024px  /* Desktop */
+xl: 1280px  /* Desktop grande */
+2xl: 1536px /* Desktop extra grande */
+```
+
+### Patrones Responsivos
+- Mobile-first approach (diseño para móvil primero)
+- Usar clases de utilidad responsiva personalizadas
+- Testear en múltiples dispositivos
+- Implementar navegación móvil colapsable
+
+## 🔧 Buenas Prácticas
+
+### Performance
+- Optimizar imágenes antes de incluirlas
+- Usar React.lazy para code splitting en rutas
+- Minimizar re-renders innecesarios
+- Implementar intersection observer para elementos en viewport
+
+### Accesibilidad
+- Incluir atributos `aria-label` en botones
+- Usar semantic HTML
+- Mantener contraste de colores adecuado
+- Navegación por teclado funcional
+
+### SEO
+- Usar títulos descriptivos en páginas
+- Implementar meta tags apropiados
+- Estructura de headings jerárquica (h1 > h2 > h3)
+- URLs amigables y descriptivas
+
+## 📝 Documentación
+
+### Documentar Nuevos Componentes
+```markdown
+### ComponentName
+Descripción breve del componente.
+
+\```jsx
+<ComponentName
+  prop1="valor"
+  prop2={123}
+  variant="primary"
+/>
+\```
+
+Props:
+- `prop1` (string, required): Descripción
+- `prop2` (number, optional): Descripción, default: 0
+```
+
+### Comentarios en Código
+- Comentar lógica compleja
+- Documentar funciones públicas
+- Explicar decisiones técnicas no obvias
+- Mantener comentarios actualizados
+
+## 🚫 Evitar
+
+### Anti-patrones
+- ❌ Inline styles (usar Tailwind o clases CSS)
+- ❌ Manipulación directa del DOM
+- ❌ Componentes con más de 200 líneas
+- ❌ Props drilling excesivo
+- ❌ Estado global innecesario
+- ❌ Repetir clases de Tailwind responsivas (usar clases de utilidad)
+
+### Dependencias
+- ❌ No agregar librerías sin aprobación
+- ❌ No usar jQuery o bibliotecas similares
+- ❌ Evitar CSS-in-JS libraries (usar Tailwind)
+
+## 🔄 Git y Versionado
+
+### Commits
+- Mensajes descriptivos en español
+- Usar prefijos: feat:, fix:, docs:, style:, refactor:
+- Commits atómicos (un cambio por commit)
+
+### Ramas
+- `main`: Código de producción
+- `develop`: Desarrollo activo
+- `feature/nombre-feature`: Nuevas características
+- `fix/nombre-fix`: Correcciones
+
+## 🧪 Testing
+
+### Estructura de Tests
+```javascript
+// ComponentName.test.js
+import { render, screen } from '@testing-library/react';
+import ComponentName from './ComponentName';
+
+describe('ComponentName', () => {
+  test('renders correctly', () => {
+    render(<ComponentName prop1="test" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
+});
+```
+
+### Cobertura Mínima
+- Componentes críticos: 80%+
+- Funciones utilitarias: 90%+
+- Páginas principales: 60%+
+
+---
+
+## 📞 Contacto Técnico
+Para dudas sobre estas reglas o el proyecto, revisar documentación en:
+- `FONT_GUIDELINES.md` - Sistema de tipografía
+- `IMPLEMENTACION.md` - Detalles de implementación
+- `src/docs/COMPONENTS.md` - Documentación de componentes 
