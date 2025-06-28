@@ -63,7 +63,12 @@ const ServiceCard = ({ title, description, icon, href }) => (
   </div>
 );
 
-const CountUpAnimation = ({ end, duration = 2000, prefix = "", suffix = "" }) => {
+const CountUpAnimation = ({
+  end,
+  duration = 2000,
+  prefix = "",
+  suffix = "",
+}) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -127,7 +132,9 @@ const CountUpAnimation = ({ end, duration = 2000, prefix = "", suffix = "" }) =>
       relative group"
     >
       <div className="absolute inset-0 bg-white/10 blur-lg group-hover:blur-xl transition-all duration-300 opacity-0 group-hover:opacity-20"></div>
-      {prefix}{count}{suffix}
+      {prefix}
+      {count}
+      {suffix}
     </div>
   );
 };
@@ -138,28 +145,28 @@ const Home = () => {
 
   useEffect(() => {
     // Cargar la API de YouTube
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    const firstScriptTag = document.getElementsByTagName('script')[0];
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
     // Configurar el reproductor cuando la API esté lista
     window.onYouTubeIframeAPIReady = () => {
-      const newPlayer = new window.YT.Player('video-player', {
-        videoId: 'jWEeX8Gb4Mk',
+      const newPlayer = new window.YT.Player("video-player", {
+        videoId: "jWEeX8Gb4Mk",
         playerVars: {
           autoplay: 0,
           mute: 1,
           controls: 1,
           rel: 0,
           playsinline: 1,
-          enablejsapi: 1
+          enablejsapi: 1,
         },
         events: {
           onReady: () => {
             setPlayer(newPlayer);
-          }
-        }
+          },
+        },
       });
     };
 
@@ -176,7 +183,7 @@ const Home = () => {
         }
       },
       {
-        threshold: 0.5
+        threshold: 0.5,
       }
     );
 
@@ -233,8 +240,8 @@ const Home = () => {
   ];
 
   const stats = [
-    { value: 1500, prefix: "+", label: "Instalaciones" },
-    { value: 24, suffix: "/7", label: "Soporte Técnico" },
+    { value: 2000, prefix: "+", label: "Instalaciones" },
+    //{ value: 24, suffix: "/7", label: "Soporte Técnico" },
     { value: 20, prefix: "+", suffix: " años", label: "Años de Experiencia" },
   ];
 
@@ -246,9 +253,7 @@ const Home = () => {
 
       <section className="w-full pt-0">
         {/* Sección de Presentación */}
-        <div
-          className="w-full bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 py-8 md:py-24 relative overflow-hidden"
-        >
+        <div className="w-full bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 py-8 md:py-24 relative overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="text-left" data-aos="fade-right">
@@ -265,10 +270,10 @@ const Home = () => {
                   <span className="text-secondary-500 font-semibold">
                     Kaizen
                   </span>
-                  ,  brindamos soluciones integrales de gas natural
-                  con garantía total en calidad y seguridad. Instaladores
-                  certificados con 20 años de experiencia y especialistas en
-                  transformar el consumo energético.
+                  , brindamos soluciones integrales de gas natural con garantía
+                  total en calidad y seguridad. Instaladores certificados con 20
+                  años de experiencia y especialistas en transformar el consumo
+                  energético.
                 </p>
 
                 <div className="mt-12">
@@ -278,7 +283,9 @@ const Home = () => {
                       from-secondary-500 via-secondary-400 to-secondary-500 text-white font-medium text-lg 
                       group relative overflow-hidden shadow-xl hover:shadow-secondary-500/50 transition-all duration-500"
                   >
-                    <span className="relative z-10">Conoce Más de Nosotros</span>
+                    <span className="relative z-10">
+                      Conoce Más de Nosotros
+                    </span>
                     <div
                       className="absolute inset-0 bg-gradient-to-r from-white/25 via-white/0 to-white/25 
                       transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
@@ -306,7 +313,7 @@ const Home = () => {
                 data-aos="fade-left"
               >
                 <div className="absolute inset-0 z-10">
-                  <iframe 
+                  <iframe
                     id="video-player"
                     className="w-full h-full"
                     src="https://www.youtube.com/embed/jWEeX8Gb4Mk?enablejsapi=1&controls=1&rel=0&playsinline=1"
@@ -358,9 +365,7 @@ const Home = () => {
         </div>
 
         {/* Sección de Estadísticas */}
-        <div 
-          className="py-16 bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 text-white relative overflow-hidden"
-        >
+        <div className="py-16 bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 text-white relative overflow-hidden">
           {/* Elementos decorativos */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute w-full h-full bg-[url('data:image/svg+xml,...')] opacity-5"></div>
@@ -369,21 +374,23 @@ const Home = () => {
                 key={i}
                 className="absolute rounded-full bg-white/5"
                 style={{
-                  width: Math.random() * 100 + 50 + 'px',
-                  height: Math.random() * 100 + 50 + 'px',
-                  left: Math.random() * 100 + '%',
-                  top: Math.random() * 100 + '%',
+                  width: Math.random() * 100 + 50 + "px",
+                  height: Math.random() * 100 + 50 + "px",
+                  left: Math.random() * 100 + "%",
+                  top: Math.random() * 100 + "%",
                   transform: `scale(${Math.random() * 0.5 + 0.5})`,
-                  animation: `float ${Math.random() * 10 + 5}s infinite ease-in-out ${Math.random() * 5}s`
+                  animation: `float ${
+                    Math.random() * 10 + 5
+                  }s infinite ease-in-out ${Math.random() * 5}s`,
                 }}
               />
             ))}
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-center">
               {stats.map((stat, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-primary-800/30 backdrop-blur-sm rounded-2xl p-6 md:p-8
                   transform hover:scale-105 transition-all duration-500
@@ -395,8 +402,10 @@ const Home = () => {
                     prefix={stat.prefix || ""}
                     suffix={stat.suffix || ""}
                   />
-                  <div className="text-xl md:text-2xl font-light text-primary-100 mt-2
-                    bg-gradient-to-r from-white via-primary-100 to-white bg-clip-text text-transparent">
+                  <div
+                    className="text-xl md:text-2xl font-light text-primary-100 mt-2
+                    bg-gradient-to-r from-white via-primary-100 to-white bg-clip-text text-transparent"
+                  >
                     {stat.label}
                   </div>
                 </div>
@@ -430,7 +439,7 @@ const Home = () => {
         <div className="border-t border-gray-100">
           <div className="container mx-auto">
             <div className="text-center py-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
                 Clientes que confian en nosotros
               </h2>
               <p className="text-primary-600 text-lg mb-8 max-w-2xl mx-auto">
@@ -446,4 +455,3 @@ const Home = () => {
 };
 
 export default Home;
-
