@@ -47,7 +47,7 @@ const FAQ = () => {
             <li>Vivienda calificadas dentro de los estratos Medio, Medio Bajo y Bajo según el plano estratificado a nivel de manzana por ingreso per cápita del hogar elaborado por el INEI.</li>
           </ul>
           <p className="mt-2">
-            Cabe resaltar que las viviendas de hasta 4 pisos pueden acceder al beneficio (una cocina conectada con el BonoGas por piso), así como las personas que se encuentren en una vivienda alquilada.
+          Cabe resaltar que las viviendas de hasta 6 pisos pueden acceder al beneficio (una cocina conectada al BonoGas + un segundo punto por piso), Así como las personas que se encuentren en una vivienda alquilada.
           </p>
         </>
       )
@@ -71,15 +71,29 @@ const FAQ = () => {
     },
     {
       question: "¿Qué tengo que hacer para solicitar el BonoGas?",
-      answer: "Si usted desea acceder al BonoGas deberá comunicarse con las Empresas Instaladoras autorizadas para solicitar una visita a su vivienda. Debe tener en cuenta que el BonoGas solo puede ser ofrecido por las Empresas Instaladoras que hayan suscrito convenio con el Osinergmin. Todas las Empresas Instaladoras tienen un distrito designado donde promocionar el BonoGas."
+      answer: "Si usted desea acceder al BonoGas deberá comunicarse con las Empresas Instaladoras autorizadas para solicitar una visita a su vivienda. Debe tener en cuenta que el BonoGas solo puede ser ofrecido por las Empresas Instaladoras que estén suscritas en el mismo Programa BonoGas del FISE."
     },
     {
       question: "¿Cómo sé qué Empresas Instaladoras pueden ofrecerme el BonoGas?",
-      answer: "Todas las Empresas Instaladoras estarán debidamente identificadas con un chaleco y fotocheck cuando visiten los hogares. Usted podrá conocer cuáles son las empresas autorizadas para ofrecer el BonoGas en la siguiente lista."
+      answer: (
+        <>
+          Todo Asesor Comercial de Empresas instaladoras deben estar debidamente identificadas con su Chaleco y Fotocheck cuando visiten los hogares para ofrecer el servicio.
+          <br />
+          Usted puede ver la lista de las Empresas instaladoras autorizadas en la siguiente página:
+          <br />
+          <a
+            href="https://fise.minem.gob.pe:23305/consultas/gnr/buscador-empresas-instaladoras"
+            className="text-blue-600 hover:underline"
+            target="_blank" rel="noopener noreferrer"
+          >
+            https://fise.minem.gob.pe:23305/consultas/gnr/buscador-empresas-instaladoras
+          </a>
+        </>
+      )
     },
     {
       question: "¿Cuál es el costo que financiará el BonoGas?",
-      answer: "Osinergmin ha establecido los costos máximos para la construcción de la instalación interna, además de otros conceptos como difusión y capacitación, los cuales deberán ser respetados por todas las Empresas Instaladoras con convenio para el financiamiento del BonoGas. En ese sentido, se han descrito dos modalidades de construcción interna: empotrada y a la vista, los cuales tienen un costo máximo ya establecido. Es importante mencionar que cada Empresa Instaladora le podrá ofrecer un costo menor a los mencionados en la siguiente tabla, pero nunca deberá ofrecerte el financiamiento a un costo mayor."
+      answer: "Osinergmin ha establecido los costos máximos para la construcción de la instalación interna, además de otros conceptos como difusión y capacitación, los cuales deberán ser respetados por todas las Empresas Instaladoras con convenio para el financiamiento del BonoGas. En ese sentido, se han descrito dos modalidades de construcción interna: empotrada y a la vista, los cuales tienen un costo máximo ya establecido."
     },
     {
       question: "¿Puedo cambiar de Empresa Instaladora luego de firmado el convenio de financiamiento del BonoGas?",
@@ -89,17 +103,19 @@ const FAQ = () => {
       question: "¿Qué documentos tengo que presentar para acceder al BonoGas?",
       answer: (
         <>
-          Primero usted deberá solicitar el número de suministro a Cálidda, para ello tiene que entregarle a la Empresa Instaladora con la cual ha decidido realizar la construcción de la instalación interna, lo siguiente:
+          Los documentos a entregar se pueden ver clicando en el siguiente link y luego en “Requisitos”. 
+          <br />
+          <a 
+            href="https://www.calidda.com.pe/mi-hogar/conexion-al-gas-natural" 
+            className="text-blue-600 hover:underline"
+            target="_blank" rel="noopener noreferrer"
+          >
+            https://www.calidda.com.pe/mi-hogar/conexion-al-gas-natural
+          </a>
           <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>Copia simple de DNI del propietario del predio.</li>
-            <li>Documento que acredite propiedad del predio (último autovalúo – no necesariamente cancelado).</li>
-            <li>En caso de alquiler presentar autorización del propietario.</li>
-          </ul>
-          <p className="mt-2">Los documentos serán evaluados por Cálidda. Una vez que sean aprobados, usted deberá firmar:</p>
-          <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>Convenio de financiamiento (Osinergmin / Beneficiario BonoGas).</li>
-            <li>Contrato de suministro (Cálidda / Beneficiario BonoGas).</li>
-            <li>Contrato de la construcción de instalación interna (Empresa Instaladora / Beneficiario BonoGas).</li>
+            <li>DNI Contratante</li>
+            <li>Documento de propiedad</li>
+            <li>•	En caso de Alquiler Autorización y DNI del propietario</li>
           </ul>
         </>
       )
@@ -112,12 +128,14 @@ const FAQ = () => {
       question: "¿Cuánto demora toda la instalación interna de gas natural?",
       answer: (
         <>
-          Solo la construcción de la instalación realizada por la Empresa Instaladora puede ser realizada en dos días, dependiendo la dificultad de la instalación de redes internas en la vivienda. Sin embargo, todo el proceso dura 48 días hábiles.
+          Solo la instalación puede demorar un máximo de 2 días hábiles, dependiendo de la dificultad de la misma.
+          <br />
+          En general el proceso sería el siguiente:
           <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>Inicio del proceso: Firma de contrato de Suministro (Aprobación de la concesionaria Cálidda)</li>
-            <li>Construcción de la acometida: 8 días (Responsabilidad de la concesionaria Cálidda)</li>
-            <li>Construcción de la Instalación interna: 5 días (Responsabilidad de la Empresa Instaladora)</li>
-            <li>Habilitación del suministro: 10 días (Responsabilidad de la concesionaria Cálidda)</li>
+            <li>Inicio de proceso: Firma de Contrato de Suministro y aprobación del contrato (5 días hábiles).</li>
+            <li>Construcción interna y acometida: (2 días hábiles).</li>
+            <li>Realización de la Tubería de Conexión Externa pista a gabinete (Responsabilidad de la concesionaria Cálidda y sus contratistas, Aproximadamente de 10 a 20 días hábiles).</li>
+            <li>Habilitación del Suministro: Entre 2 a 5 días.</li>
           </ul>
         </>
       )
@@ -148,7 +166,7 @@ const FAQ = () => {
     },
     {
       question: "¿Qué pasa si la concesionaria no cumple con sus responsabilidades dentro de los plazos establecidos?",
-      answer: "La concesionaria está obligada a construir la acometida y la tubería de conexión en un plazo de 8 días hábiles desde la firma del Contrato de Suministro. En caso de incumplimiento podrá presentar su reclamo a la concesionaria y como segunda instancia a Osinergmin."
+      answer: "La concesionaria está obligada a construir la tubería de conexión en un plazo máximo de 20 días hábiles desde la construcción de la instalación interna en el predio. En caso de incumplimiento podría presentar su reclamo a la concesionaria a través del siguiente número 01-6149000 (Opción 6) y como segunda instancia a Osinergmin."
     }
   ];
 
@@ -230,4 +248,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ; 
+export default FAQ;

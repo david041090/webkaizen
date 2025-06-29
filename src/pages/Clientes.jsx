@@ -108,10 +108,9 @@ const logos = [
 ];
 
 const stats = [
-  { value: "1800+", label: "Instalaciones", icon: "fas fa-tools" },
+  { value: "2000+", label: "Instalaciones", icon: "fas fa-tools" },
   { value: "20+", label: "Años", icon: "fas fa-clock" },
-  { value: "100%", label: "Satisfacción", icon: "fas fa-smile" },
-  { value: "24/7", label: "Soporte", icon: "fas fa-headset" }
+  { value: "100%", label: "Satisfacción", icon: "fas fa-smile" }
 ];
 
 const proyectos = [
@@ -303,7 +302,7 @@ const Clientes = () => {
 
             {/* Sección de Estadísticas */}
             <div className="bg-primary-800">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 p-4 md:p-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 p-4 md:p-6">
                 {stats.map((stat, index) => (
                   <StatCard key={index} stat={stat} index={index} />
                 ))}
