@@ -7,12 +7,12 @@ const TopBar = () => {
         <div className="flex justify-end items-center h-8">
           <div className="flex items-center space-x-4">
             <a 
-              href="mailto:info@kaizen.com" 
+              href="mailto:info@gkaizen.com" 
               className="flex items-center text-white hover:text-complemento-300 transition-colors duration-200 group cursor-pointer"
               aria-label="Email"
             >
               <i className="fas fa-envelope mr-2"></i>
-              <span className="text-sm group-hover:text-complemento-300">info@kaizen.com</span>
+              <span className="text-sm group-hover:text-complemento-300">info@gkaizen.com</span>
             </a>
             <a 
               href="https://www.facebook.com/profile.php?id=100078954631590" 
