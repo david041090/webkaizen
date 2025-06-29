@@ -141,66 +141,62 @@ const CountUpAnimation = ({
 
 const Home = () => {
   const videoSectionRef = useRef(null);
-  const [player, setPlayer] = useState(null);
+  const videoPlayerRef = useRef(null);
 
   useEffect(() => {
-    // Cargar la API de YouTube
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName("script")[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // Configurar el reproductor cuando la API esté lista
-    window.onYouTubeIframeAPIReady = () => {
-      const newPlayer = new window.YT.Player("video-player", {
-        videoId: "jWEeX8Gb4Mk",
-        playerVars: {
-          autoplay: 0,
-          mute: 1,
-          controls: 1,
-          rel: 0,
-          playsinline: 1,
-          enablejsapi: 1,
+    let observer;
+    
+    try {
+      // Configurar el observer para la reproducción automática
+      observer = new IntersectionObserver(
+        (entries) => {
+          const [entry] = entries;
+          const videoElement = videoPlayerRef.current;
+          
+          if (!videoElement) return;
+          
+          if (entry.isIntersecting) {
+            // Cuando el video entra en vista, reproducir y desmutear
+            const playPromise = videoElement.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  // Reproducción exitosa
+                  videoElement.muted = false;
+                  videoElement.volume = 0.8; // Volumen más moderado
+                })
+                .catch((error) => {
+                  console.log('Error al reproducir video:', error);
+                  // Mantener silenciado si hay error
+                  videoElement.muted = true;
+                });
+            }
+          } else {
+            // Cuando el video sale de vista, pausar y mutear
+            videoElement.pause();
+            videoElement.muted = true;
+          }
         },
-        events: {
-          onReady: () => {
-            setPlayer(newPlayer);
-          },
-        },
-      });
-    };
-
-    // Configurar el observer para la reproducción automática
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting && player) {
-          player.playVideo();
-          player.unMute();
-          player.setVolume(100);
-        } else if (player) {
-          player.pauseVideo();
+        {
+          threshold: 0.5,
+          rootMargin: '0px 0px -50px 0px'
         }
-      },
-      {
-        threshold: 0.5,
-      }
-    );
+      );
 
-    if (videoSectionRef.current) {
-      observer.observe(videoSectionRef.current);
+      const videoSection = videoSectionRef.current;
+      if (videoSection) {
+        observer.observe(videoSection);
+      }
+
+      return () => {
+        if (observer && videoSection) {
+          observer.unobserve(videoSection);
+        }
+      };
+    } catch (error) {
+      console.error('Error configurando IntersectionObserver:', error);
     }
-
-    return () => {
-      if (videoSectionRef.current) {
-        observer.unobserve(videoSectionRef.current);
-      }
-      if (player) {
-        player.destroy();
-      }
-      delete window.onYouTubeIframeAPIReady;
-    };
-  }, [player]);
+  }, []);
 
   const services = [
     {
@@ -312,17 +308,21 @@ const Home = () => {
                 className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
                 data-aos="fade-left"
               >
-                <div className="absolute inset-0 z-10">
-                  <iframe
-                    id="video-player"
-                    className="w-full h-full"
-                    src="https://www.youtube.com/embed/jWEeX8Gb4Mk?enablejsapi=1&controls=1&rel=0&playsinline=1"
-                    title="¿Cómo se realiza la instalación de Gas Natural en una industria?"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    frameBorder="0"
-                    allowFullScreen
-                  ></iframe>
-                </div>
+                <video
+                  ref={videoPlayerRef}
+                  className="w-full h-full object-cover"
+                  src="/assets/video/video-kaizen.mp4"
+                  title="Video institucional Kaizen - Instalaciones de Gas Natural"
+                  controls={true}
+                  muted={true}
+                  playsInline={true}
+                  preload="metadata"
+                  onError={(e) => console.error('Error cargando video:', e)}
+                  onLoadStart={() => console.log('Iniciando carga del video')}
+                  onCanPlay={() => console.log('Video listo para reproducir')}
+                >
+                  Tu navegador no soporta el elemento de video.
+                </video>
               </div>
             </div>
           </div>
